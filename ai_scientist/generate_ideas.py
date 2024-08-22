@@ -21,9 +21,11 @@ Here are the ideas that you have already generated:
 {prev_ideas_string}
 '''
 
-Come up with the next impactful and creative idea for research experiments and directions you can feasibly investigate with the code provided.
+Come up with the next impactful and creative idea for method, research experiments and directions you can feasibly investigate with the code provided.
 Note that you will not have access to any additional resources or datasets.
 Make sure any idea is not overfit the specific training dataset or model, and has wider significance.
+You should think about the problems and solutions that you can find in the current idea generation process, and how to improve them by proposing new ideas.
+Note that this is not mere task solving but academic research, so you should focus on the novelty, significance, feasibility, interestingness, and critical evaluation of the ideas.
 
 Respond in the following format:
 
@@ -40,18 +42,20 @@ In <THOUGHT>, first briefly discuss your intuitions and motivations for the idea
 In <JSON>, provide the new idea in JSON format with the following fields:
 - "Name": A shortened descriptor of the idea. Lowercase, no spaces, underscores allowed.
 - "Title": A title for the idea, will be used for the report writing.
+- "Method": A description of the new method proposed in this research.
 - "Experiment": An outline of the implementation. E.g. which functions need to be added or modified, how results will be obtained, ...
-- "Interestingness": A rating from 1 to 10 (lowest to highest).
-- "Feasibility": A rating from 1 to 10 (lowest to highest).
-- "Novelty": A rating from 1 to 10 (lowest to highest).
+- "Interestingness": A rating from 1 to 10 (lowest to highest). Whether it is intellectually stimulating and piques scientists' curiosity.
+- "Feasibility": A rating from 1 to 10 (lowest to highest). The feasibility of this idea considering that AI would execute it completely autonomously, without any human intervention, interaction with the internet, or preparation of new data.
+- "Novelty": A rating from 1 to 10 (lowest to highest). Not only did it simply not exist, but something so innovative that no one, not even researchers seeking new discoveries, has ever seen before is considered to be novel.
+- "Significance": A rating from 1 to 10 (lowest to highest). Whether it has a significant impact on the research field or the practical impact on the world.
 
-Be cautious and realistic on your ratings.
+Be cautious, critical, harsh and realistic on your ratings.
 This JSON will be automatically parsed, so ensure the format is precise.
 You will have {num_reflections} rounds to iterate on the idea, but do not need to use them all.
 """
 
 idea_reflection_prompt = """Round {current_round}/{num_reflections}.
-In your thoughts, first carefully consider the quality, novelty, and feasibility of the idea you just created.
+In your thoughts, first carefully consider the quality, novelty, significance, and feasibility of the idea you just created.
 Include any other factors that you think are important in evaluating the idea.
 Ensure the idea is clear and concise, and the JSON is the correct format.
 Do not make things overly complicated.
@@ -445,6 +449,23 @@ def check_idea_novelty(
 
     return ideas
 
+def select_best_idea(ideas):
+    max_score = float('-inf')
+    best_idea = None
+    
+    for idea in ideas:
+        total_score = (
+            idea['Interestingness'] +
+            idea['Feasibility'] +
+            idea['Novelty'] +
+            idea['Significance']
+        )
+        
+        if total_score > max_score:
+            max_score = total_score
+            best_idea = idea
+    
+    return best_idea
 
 if __name__ == "__main__":
     MAX_NUM_GENERATIONS = 32

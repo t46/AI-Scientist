@@ -12,12 +12,12 @@ from aider.coders import Coder
 from aider.models import Model
 from aider.io import InputOutput
 from datetime import datetime
-from ai_scientist.generate_ideas import generate_ideas, check_idea_novelty
+from ai_scientist.generate_ideas import generate_ideas, check_idea_novelty, select_best_idea
 from ai_scientist.perform_experiments import perform_experiments
 from ai_scientist.perform_writeup import perform_writeup, generate_latex
 from ai_scientist.perform_review import perform_review, load_paper, perform_improvement
 
-NUM_REFLECTIONS = 3
+NUM_REFLECTIONS = 2
 
 
 def print_time():
@@ -321,70 +321,74 @@ if __name__ == "__main__":
         max_num_generations=args.num_ideas,
         num_reflections=NUM_REFLECTIONS,
     )
-    ideas = check_idea_novelty(
-        ideas,
-        base_dir=base_dir,
-        client=client,
-        model=client_model,
-    )
+    # if not args.skip_novelty_check:  # TODO: check novelty がある時だけ check するようにする
+    #     ideas = check_idea_novelty(
+    #         ideas,
+    #         base_dir=base_dir,
+    #         client=client,
+    #         model=client_model,
+    #     )
+    #     ideas = [idea for idea in ideas if idea["novel"]]
 
     with open(osp.join(base_dir, "ideas.json"), "w") as f:
         json.dump(ideas, f, indent=4)
 
-    novel_ideas = [idea for idea in ideas if idea["novel"]]
+    # TODO: idea は一つだけ選択するようにする
+    idea = select_best_idea(ideas)
     # novel_ideas = list(reversed(novel_ideas))
 
     if args.parallel > 0:
-        print(f"Running {args.parallel} parallel processes")
-        queue = multiprocessing.Queue()
-        for idea in novel_ideas:
-            queue.put(idea)
+        print("I only have a single GPU, so I cannot run parallel processes.")
+        # print(f"Running {args.parallel} parallel processes")
+        # queue = multiprocessing.Queue()
+        # for idea in novel_ideas:
+        #     queue.put(idea)
 
-        processes = []
-        for i in range(args.parallel):
-            gpu_id = available_gpus[i % len(available_gpus)]
-            p = multiprocessing.Process(
-                target=worker,
-                args=(
-                    queue,
-                    base_dir,
-                    results_dir,
-                    args.model,
-                    client,
-                    client_model,
-                    args.writeup,
-                    args.improvement,
-                    gpu_id,
-                )
-            )
-            p.start()
-            time.sleep(150)
-            processes.append(p)
+        # processes = []
+        # for i in range(args.parallel):
+        #     gpu_id = available_gpus[i % len(available_gpus)]
+        #     p = multiprocessing.Process(
+        #         target=worker,
+        #         args=(
+        #             queue,
+        #             base_dir,
+        #             results_dir,
+        #             args.model,
+        #             client,
+        #             client_model,
+        #             args.writeup,
+        #             args.improvement,
+        #             gpu_id,
+        #         )
+        #     )
+        #     p.start()
+        #     time.sleep(150)
+        #     processes.append(p)
 
-        # Signal workers to exit
-        for _ in range(args.parallel):
-            queue.put(None)
+        # # Signal workers to exit
+        # for _ in range(args.parallel):
+        #     queue.put(None)
 
-        for p in processes:
-            p.join()
+        # for p in processes:
+        #     p.join()
 
-        print("All parallel processes completed.")
+        # print("All parallel processes completed.")
     else:
-        for idea in novel_ideas:
-            print(f"Processing idea: {idea['Name']}")
-            try:
-                success = do_idea(
-                    base_dir,
-                    results_dir,
-                    idea,
-                    args.model,
-                    client,
-                    client_model,
-                    args.writeup,
-                    args.improvement,
-                )
-                print(f"Completed idea: {idea['Name']}, Success: {success}")
-            except Exception as e:
-                print(f"Failed to evaluate idea {idea['Name']}: {str(e)}")
+        # for idea in novel_ideas:  TODO: idea は一つだけ
+        print(f"Processing idea: {idea['Name']}")
+        try:
+            success = do_idea(
+                base_dir,
+                results_dir,
+                idea,
+                args.model,
+                client,
+                client_model,
+                args.writeup,
+                args.improvement,
+            )
+            print(f"Completed idea: {idea['Name']}, Success: {success}")
+        except Exception as e:
+            print(f"Failed to evaluate idea {idea['Name']}: {str(e)}")
 
     print("All ideas evaluated.")

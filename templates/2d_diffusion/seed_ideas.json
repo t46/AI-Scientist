@@ -5,6 +5,7 @@
     "Experiment": "In this experiment, we compare the performance of different learning rate schedules on diffusion model performance. We use the final estimated KL as the evaluation metric.",
     "Interestingness": 4,
     "Feasibility": 10,
-    "Novelty": 3
+    "Novelty": 3,
+    "Significance": 1
   }
 ]
