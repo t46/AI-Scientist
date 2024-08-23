@@ -1,0 +1,29 @@
+[
+    {
+        "Name": "idea_generation_methods",
+        "Title": "Idea Generation Methods: Comparing different idea generation methods for automated research paper generation.",
+        "Experiment": "In this experiment, we compare the performance of different idea generation methods (perform_generate_idea()) on automated research paper generation performance. We use the review score by (perform_review()) as the evaluation metric.",
+        "Interestingness": 2,
+        "Feasibility": 10,
+        "Novelty": 2,
+        "novel": true
+    },
+    {
+        "Name": "interdisciplinary_idea_generation",
+        "Title": "Interdisciplinary Idea Generation: Integrating Diverse Perspectives for Automated Research Paper Generation",
+        "Experiment": "In this experiment, we extend the generate_ideas() function to incorporate insights from multiple disciplines (e.g., computer science, cognitive science, philosophy). We will use predefined themes or domains to guide the idea generation process. The generated ideas will then be evaluated using the review score from perform_review() as the evaluation metric. The results will be compared with the baseline idea generation method to assess the impact of interdisciplinary perspectives.",
+        "Interestingness": 8,
+        "Feasibility": 7,
+        "Novelty": 8,
+        "novel": true
+    },
+    {
+        "Name": "prompt_engineering",
+        "Title": "Prompt Engineering: Optimizing Prompt Structures for Enhanced Idea Generation in Automated Research Paper Generation",
+        "Experiment": "In this experiment, we extend the generate_ideas() function to incorporate different prompt engineering techniques. We design a set of diverse prompts categorized into creativity-focused, specificity-focused, and interdisciplinary-focused prompts. The generated ideas will then be evaluated using the review score from perform_review() as the evaluation metric. The results will be compared with the baseline idea generation method to assess the impact of different prompt engineering techniques.",
+        "Interestingness": 9,
+        "Feasibility": 8,
+        "Novelty": 9,
+        "novel": true
+    }
+]

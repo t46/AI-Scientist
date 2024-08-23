@@ -1,0 +1,22 @@
+# Title: Context-Aware Dynamic Prompting for Enhanced Idea Generation
+# Experiment description: 1. Implement contextual analysis in the idea generation module to understand the context of each generated idea. 2. Develop a feedback mechanism where the AI evaluates its own ideas based on predefined criteria (e.g., relevance, novelty, feasibility). 3. Dynamically adjust the idea generation prompts based on the feedback to refine and improve subsequent ideas. 4. Compare the performance of this method with existing methods using the review score by (perform_review()) as the evaluation metric.
+## Run 0: Baseline
+Results: {'result': {'Soundness': 2.0, 'Presentation': 2.0, 'Contribution': 2.0, 'Overall': 3.0, 'Confidence': 4.0, 'Originality': 2.0, 'Quality': 2.0, 'Clarity': 2.0, 'Significance': 2.0, 'Decision_Numeric': 0.0, 'Ethical_Concerns_Numeric': 0.0}}
+Description: Baseline results.
+
+## Run 1: Implement Contextual Analysis
+Results: {'result': {'Soundness': 2.0, 'Presentation': 2.0, 'Contribution': 2.0, 'Overall': 3.0, 'Confidence': 4.0, 'Originality': 2.0, 'Quality': 2.0, 'Clarity': 3.0, 'Significance': 2.0, 'Decision_Numeric': 0.0, 'Ethical_Concerns_Numeric': 0.0}}
+Description: Implemented contextual analysis in the idea generation module to understand the context of each generated idea. The results show no significant improvement over the baseline.
+
+## Run 4: Combine Contextual Analysis and Feedback Mechanism
+Results: {'result': {'Soundness': 2.0, 'Presentation': 2.0, 'Contribution': 2.0, 'Overall': 3.0, 'Confidence': 4.0, 'Originality': 2.0, 'Quality': 2.0, 'Clarity': 3.0, 'Significance': 2.0, 'Decision_Numeric': 0.0, 'Ethical_Concerns_Numeric': 0.0}}
+Description: Combined contextual analysis and feedback mechanism. The contextual analysis was used to understand the context of each generated idea, and the feedback mechanism evaluated the ideas and adjusted the prompts if the overall score was below 5. The results show no significant improvement over the baseline.
+
+## Plots
+### Comparison of Review Results across Different Runs
+Filename: comparison_plots.png
+Description: This plot provides a boxplot comparison of various metrics (Overall, Soundness, Presentation, Contribution, Originality, Quality, Clarity, Significance) across different runs. Each box represents the distribution of scores for a particular metric in a specific run. The baseline run is colored in blue, while other runs are colored in red. Statistical significance is indicated by an asterisk (*) above the box if the p-value is less than 0.05 when compared to the baseline.
+
+### Comparison of Acceptance Rates across Different Runs
+Filename: decision_comparison.png
+Description: This bar plot compares the acceptance rates of ideas across different runs. Each bar represents the proportion of ideas accepted in a specific run. The baseline run is colored in blue, while other runs are colored in red. The height of each bar indicates the acceptance rate, and the exact value is displayed above each bar.

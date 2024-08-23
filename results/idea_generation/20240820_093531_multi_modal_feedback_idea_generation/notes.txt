@@ -1,0 +1,5 @@
+# Title: Multi-Modal Feedback for Enhanced Idea Generation in Automated Research Paper Generation
+# Experiment description: In this experiment, we will extend the existing idea generation method to include a composite evaluation metric that combines novelty, feasibility, significance, and interestingness. Additionally, we will implement a multi-modal feedback loop where different AI models provide feedback on different aspects of the generated ideas. These AI models will be selected and trained based on their expertise in evaluating specific metrics. We will compare the performance of this new method against the baseline method using the review scores from perform_review() as the evaluation metric.
+## Run 0: Baseline
+Results: {'result': {'Soundness': 2.0, 'Presentation': 2.0, 'Contribution': 2.0, 'Overall': 3.0, 'Confidence': 4.0, 'Originality': 2.0, 'Quality': 2.0, 'Clarity': 2.0, 'Significance': 2.0, 'Decision_Numeric': 0.0, 'Ethical_Concerns_Numeric': 0.0}}
+Description: Baseline results.

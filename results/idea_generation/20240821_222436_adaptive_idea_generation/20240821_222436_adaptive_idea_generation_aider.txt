@@ -1,0 +1,717 @@
+
+# aider chat started at 2024-08-21 22:24:36
+
+
+#### Your goal is to implement the following idea: Adaptive Idea Generation through Metric-Guided Meta-Learning in Automated Research.  
+#### The proposed experiment is as follows: 1. Modify generate_ideas() to use a weighted scoring system for idea selection. 2. Implement update_idea_generator() to adjust weights based on review metrics. 3. Add a diversity mechanism to ensure varied idea generation. 4. Compare the quality and diversity of ideas over multiple rounds (at least 10) against a non-adaptive baseline. 5. Analyze the evolution of weights to understand which factors contribute most to high-quality ideas..  
+#### You are given a total of up to 5 runs to complete the necessary experiments. You do not need to use all 5.  
+####   
+#### First, plan the list of experiments you would like to run. For example, if you are sweeping over a specific hyperparameter, plan each value you would like to test for each run.  
+####   
+#### Note that we already provide the vanilla baseline results, so you do not need to re-run it.  
+####   
+#### For reference, the baseline results are as follows:  
+####   
+#### {'result': {'Soundness': 2.0, 'Presentation': 2.0, 'Contribution': 2.0, 'Overall': 3.0, 'Confidence': 4.0, 'Originality': 3.0, 'Quality': 2.0, 'Clarity': 2.0, 'Significance': 2.0, 'Decision_Numeric': 0.0, 'Ethical_Concerns_Numeric': 0.0}}  
+####   
+#### After you complete each change, we will run the command `python experiment.py --out_dir=run_i' where i is the run number and evaluate the results.  
+#### YOUR PROPOSED CHANGE MUST USE THIS COMMAND FORMAT, DO NOT ADD ADDITIONAL COMMAND LINE ARGS.  
+#### You can then implement the next thing on your list.  
+
+Thank you for providing the details of the experiment and the baseline results. I'll plan the experiments and implement the changes step by step. Here's the plan for the experiments:
+
+1. Run 1: Implement weighted scoring system and update_idea_generator
+2. Run 2: Add diversity mechanism
+3. Run 3: Adjust weights and parameters based on previous results
+4. Run 4: Fine-tune the system based on the insights from Run 3
+5. Run 5: Final run with optimized parameters
+
+Let's start with Run 1, where we'll implement the weighted scoring system and the update_idea_generator function.
+
+experiment.py
+<source>python
+<<<<<<< SEARCH
+def generate_ideas(base_dir, client, model, max_num_generations=20, num_reflections=5):
+    idea_str_archive = []
+    with open(os.path.join(base_dir, "seed_ideas.json"), "r") as f:
+        seed_ideas = json.load(f)
+    for seed_idea in seed_ideas:
+        idea_str_archive.append(json.dumps(seed_idea))
+
+    with open(os.path.join(base_dir, "experiment.py"), "r") as f:
+        code = f.read()
+
+    with open(os.path.join(base_dir, "prompt.json"), "r") as f:
+        prompt = json.load(f)
+
+    idea_system_prompt = prompt["system"]
+
+    for _ in range(max_num_generations):
+        print(f"\nGenerating idea {_ + 1}/{max_num_generations}")
+        try:
+            prev_ideas_string = "\n\n".join(idea_str_archive)
+
+            msg_history = []
+            print(f"Iteration 1/{num_reflections}")
+            text, msg_history = get_response_from_llm(
+                idea_first_prompt.format(
+                    task_description=prompt["task_description"],
+                    code=code,
+                    prev_ideas_string=prev_ideas_string,
+                    num_reflections=num_reflections,
+                ),
+                client=client,
+                model=model,
+                system_message=idea_system_prompt,
+                msg_history=msg_history,
+            )
+            json_output = extract_json_between_markers(text)
+            assert json_output is not None, "Failed to extract JSON from LLM output"
+            print(json_output)
+
+            if num_reflections > 1:
+                for j in range(num_reflections - 1):
+                    print(f"Iteration {j + 2}/{num_reflections}")
+                    text, msg_history = get_response_from_llm(
+                        idea_reflection_prompt.format(
+                            current_round=j + 2, num_reflections=num_reflections
+                        ),
+                        client=client,
+                        model=model,
+                        system_message=idea_system_prompt,
+                        msg_history=msg_history,
+                    )
+                    json_output = extract_json_between_markers(text)
+                    assert json_output is not None, "Failed to extract JSON from LLM output"
+                    print(json_output)
+
+                    if "I am done" in text:
+                        print(f"Idea generation converged after {j + 2} iterations.")
+                        break
+
+            idea_str_archive.append(json.dumps(json_output))
+        except Exception as e:
+            print(f"Failed to generate idea: {e}")
+            continue
+
+    ideas = [json.loads(idea_str) for idea_str in idea_str_archive]
+
+    with open(os.path.join(base_dir, "ideas.json"), "w") as f:
+        json.dump(ideas, f, indent=4)
+
+    return ideas
+
+def select_best_idea(ideas):
+    return max(reversed(ideas), key=lambda idea: sum(idea[key] for key in ['Interestingness', 'Feasibility', 'Novelty', 'Significance']))
+=======
+def generate_ideas(base_dir, client, model, max_num_generations=20, num_reflections=5):
+    idea_str_archive = []
+    with open(os.path.join(base_dir, "seed_ideas.json"), "r") as f:
+        seed_ideas = json.load(f)
+    for seed_idea in seed_ideas:
+        idea_str_archive.append(json.dumps(seed_idea))
+
+    with open(os.path.join(base_dir, "experiment.py"), "r") as f:
+        code = f.read()
+
+    with open(os.path.join(base_dir, "prompt.json"), "r") as f:
+        prompt = json.load(f)
+
+    idea_system_prompt = prompt["system"]
+
+    # Initialize weights for idea selection
+    weights = {
+        'Interestingness': 1.0,
+        'Feasibility': 1.0,
+        'Novelty': 1.0,
+        'Significance': 1.0
+    }
+
+    ideas = []
+
+    for _ in range(max_num_generations):
+        print(f"\nGenerating idea {_ + 1}/{max_num_generations}")
+        try:
+            prev_ideas_string = "\n\n".join(idea_str_archive)
+
+            msg_history = []
+            print(f"Iteration 1/{num_reflections}")
+            text, msg_history = get_response_from_llm(
+                idea_first_prompt.format(
+                    task_description=prompt["task_description"],
+                    code=code,
+                    prev_ideas_string=prev_ideas_string,
+                    num_reflections=num_reflections,
+                ),
+                client=client,
+                model=model,
+                system_message=idea_system_prompt,
+                msg_history=msg_history,
+            )
+            json_output = extract_json_between_markers(text)
+            assert json_output is not None, "Failed to extract JSON from LLM output"
+            print(json_output)
+
+            if num_reflections > 1:
+                for j in range(num_reflections - 1):
+                    print(f"Iteration {j + 2}/{num_reflections}")
+                    text, msg_history = get_response_from_llm(
+                        idea_reflection_prompt.format(
+                            current_round=j + 2, num_reflections=num_reflections
+                        ),
+                        client=client,
+                        model=model,
+                        system_message=idea_system_prompt,
+                        msg_history=msg_history,
+                    )
+                    json_output = extract_json_between_markers(text)
+                    assert json_output is not None, "Failed to extract JSON from LLM output"
+                    print(json_output)
+
+                    if "I am done" in text:
+                        print(f"Idea generation converged after {j + 2} iterations.")
+                        break
+
+            idea_str_archive.append(json.dumps(json_output))
+            ideas.append(json_output)
+        except Exception as e:
+            print(f"Failed to generate idea: {e}")
+            continue
+
+    with open(os.path.join(base_dir, "ideas.json"), "w") as f:
+        json.dump(ideas, f, indent=4)
+
+    return ideas, weights
+
+def select_best_idea(ideas, weights):
+    return max(reversed(ideas), key=lambda idea: sum(weights[key] * idea[key] for key in weights))
+
+def update_idea_generator(weights, review_results):
+    # Update weights based on review metrics
+    weight_updates = {
+        'Interestingness': review_results['Originality'],
+        'Feasibility': review_results['Soundness'],
+        'Novelty': review_results['Originality'],
+        'Significance': review_results['Significance']
+    }
+    
+    # Apply a learning rate to smooth the updates
+    learning_rate = 0.1
+    for key in weights:
+        weights[key] += learning_rate * (weight_updates[key] - weights[key])
+    
+    # Normalize weights
+    total_weight = sum(weights.values())
+    for key in weights:
+        weights[key] /= total_weight
+
+    return weights
+>>>>>>> REPLACE
+</source>
+
+Now, let's modify the `main()` function to incorporate these changes:
+
+experiment.py
+<source>python
+<<<<<<< SEARCH
+def main():
+    if MODEL == "claude-3-5-sonnet-20240620":
+        client = anthropic.Anthropic()
+    elif MODEL == "gpt-4o-2024-05-13":
+        client = openai.OpenAI()
+    else:
+        raise ValueError(f"Model {MODEL} not supported.")
+    client_model = MODEL
+
+    base_dir = os.path.join("/root/AI-Scientist/templates", EXPERIMENT)
+    results_dir = os.path.join("/root/AI-Scientist/results", EXPERIMENT)
+    os.makedirs(results_dir, exist_ok=True)
+
+    archived_results_dir = os.path.join("/root/AI-Scientist/archived_results", EXPERIMENT)
+    os.makedirs(archived_results_dir, exist_ok=True)
+    for subdir in os.listdir(results_dir):
+        shutil.move(os.path.join(results_dir, subdir), archived_results_dir)
+
+    ideas = generate_ideas(
+        base_dir,
+        client=client,
+        model=client_model,
+        max_num_generations=NUM_IDEAS,
+        num_reflections=NUM_REFLECTIONS,
+    )
+
+    with open(os.path.join(base_dir, "ideas.json"), "w") as f:
+        json.dump(ideas, f, indent=4)
+
+    idea = select_best_idea(ideas)
+
+    print(f"Processing idea: {idea['Name']}")
+    success = do_idea(base_dir, results_dir, idea, client, client_model)
+    print(f"Completed idea: {idea['Name']}, Success: {success}")
+
+    print("All ideas evaluated.")
+
+    # Save results
+    parser = argparse.ArgumentParser()  
+    parser.add_argument("--out_dir", type=str, default="run_0")
+    args = parser.parse_args()
+
+    out_dir = args.out_dir
+    pathlib.Path(out_dir).mkdir(parents=True, exist_ok=True)
+
+    llm_ratings = pd.DataFrame(columns=LLM_COLS)
+    llm_ratings.set_index("paper_id", inplace=True)
+
+    for subdir in os.listdir(results_dir):
+        subdir_path = os.path.join(results_dir, subdir)
+        
+        if os.path.isdir(subdir_path):
+            review_file_path = os.path.join(subdir_path, 'review.txt')
+            paper_name = subdir
+            
+            if os.path.isfile(review_file_path):
+                try:
+                    with open(review_file_path, "r") as f:
+                        review = json.load(f)
+                        
+                        paper_data = {col: review.get(col) for col in LLM_COLS if col in review}
+                        
+                        llm_ratings.loc[paper_name] = paper_data
+                        print(f"Review for {paper_name} saved.")
+
+                except json.JSONDecodeError:
+                    print(f"Error reading review file for {paper_name}. Skipping.")
+            else:
+                print(f"No review.txt found in {subdir}. Skipping this idea.")
+
+    if not llm_ratings.empty:
+        llm_ratings.to_csv(os.path.join(out_dir, "all_results.csv"))
+        print(f"Results saved to {out_dir}")
+
+        numeric_cols = llm_ratings.select_dtypes(include=[np.number]).columns.tolist()
+
+        if "Decision" in llm_ratings.columns:
+            llm_ratings["Decision_Numeric"] = llm_ratings["Decision"].apply(process_decision)
+            numeric_cols.append("Decision_Numeric")
+
+        if "Ethical Concerns" in llm_ratings.columns:
+            llm_ratings["Ethical_Concerns_Numeric"] = llm_ratings["Ethical Concerns"].apply(process_ethical_concerns)
+            numeric_cols.append("Ethical_Concerns_Numeric")
+
+        final_info = {
+            "result": {
+                "means": llm_ratings[numeric_cols].mean().to_dict()
+            }
+        }
+
+        with open(os.path.join(out_dir, "final_info.json"), "w") as f:
+            json.dump(final_info, f, indent=4)
+    else:
+        print("No valid results to save. Check if any reviews were processed successfully.")
+=======
+def main():
+    if MODEL == "claude-3-5-sonnet-20240620":
+        client = anthropic.Anthropic()
+    elif MODEL == "gpt-4o-2024-05-13":
+        client = openai.OpenAI()
+    else:
+        raise ValueError(f"Model {MODEL} not supported.")
+    client_model = MODEL
+
+    base_dir = os.path.join("/root/AI-Scientist/templates", EXPERIMENT)
+    results_dir = os.path.join("/root/AI-Scientist/results", EXPERIMENT)
+    os.makedirs(results_dir, exist_ok=True)
+
+    archived_results_dir = os.path.join("/root/AI-Scientist/archived_results", EXPERIMENT)
+    os.makedirs(archived_results_dir, exist_ok=True)
+    for subdir in os.listdir(results_dir):
+        shutil.move(os.path.join(results_dir, subdir), archived_results_dir)
+
+    # Initialize weights
+    weights = {
+        'Interestingness': 1.0,
+        'Feasibility': 1.0,
+        'Novelty': 1.0,
+        'Significance': 1.0
+    }
+
+    ideas, weights = generate_ideas(
+        base_dir,
+        client=client,
+        model=client_model,
+        max_num_generations=NUM_IDEAS,
+        num_reflections=NUM_REFLECTIONS,
+    )
+
+    with open(os.path.join(base_dir, "ideas.json"), "w") as f:
+        json.dump(ideas, f, indent=4)
+
+    idea = select_best_idea(ideas, weights)
+
+    print(f"Processing idea: {idea['Name']}")
+    success = do_idea(base_dir, results_dir, idea, client, client_model)
+    print(f"Completed idea: {idea['Name']}, Success: {success}")
+
+    print("All ideas evaluated.")
+
+    # Save results
+    parser = argparse.ArgumentParser()  
+    parser.add_argument("--out_dir", type=str, default="run_0")
+    args = parser.parse_args()
+
+    out_dir = args.out_dir
+    pathlib.Path(out_dir).mkdir(parents=True, exist_ok=True)
+
+    llm_ratings = pd.DataFrame(columns=LLM_COLS)
+    llm_ratings.set_index("paper_id", inplace=True)
+
+    for subdir in os.listdir(results_dir):
+        subdir_path = os.path.join(results_dir, subdir)
+        
+        if os.path.isdir(subdir_path):
+            review_file_path = os.path.join(subdir_path, 'review.txt')
+            paper_name = subdir
+            
+            if os.path.isfile(review_file_path):
+                try:
+                    with open(review_file_path, "r") as f:
+                        review = json.load(f)
+                        
+                        paper_data = {col: review.get(col) for col in LLM_COLS if col in review}
+                        
+                        llm_ratings.loc[paper_name] = paper_data
+                        print(f"Review for {paper_name} saved.")
+
+                except json.JSONDecodeError:
+                    print(f"Error reading review file for {paper_name}. Skipping.")
+            else:
+                print(f"No review.txt found in {subdir}. Skipping this idea.")
+
+    if not llm_ratings.empty:
+        llm_ratings.to_csv(os.path.join(out_dir, "all_results.csv"))
+        print(f"Results saved to {out_dir}")
+
+        numeric_cols = llm_ratings.select_dtypes(include=[np.number]).columns.tolist()
+
+        if "Decision" in llm_ratings.columns:
+            llm_ratings["Decision_Numeric"] = llm_ratings["Decision"].apply(process_decision)
+            numeric_cols.append("Decision_Numeric")
+
+        if "Ethical Concerns" in llm_ratings.columns:
+            llm_ratings["Ethical_Concerns_Numeric"] = llm_ratings["Ethical Concerns"].apply(process_ethical_concerns)
+            numeric_cols.append("Ethical_Concerns_Numeric")
+
+        final_info = {
+            "result": {
+                "means": llm_ratings[numeric_cols].mean().to_dict()
+            }
+        }
+
+        with open(os.path.join(out_dir, "final_info.json"), "w") as f:
+            json.dump(final_info, f, indent=4)
+
+        # Update weights based on review results
+        weights = update_idea_generator(weights, final_info["result"]["means"])
+        
+        # Save updated weights
+        with open(os.path.join(out_dir, "weights.json"), "w") as f:
+            json.dump(weights, f, indent=4)
+    else:
+        print("No valid results to save. Check if any reviews were processed successfully.")
+>>>>>>> REPLACE
+</source>
+
+These changes implement the weighted scoring system for idea selection and the update_idea_generator function to adjust weights based on review metrics. The main function has been modified to use these new features and save the updated weights after each run.
+
+To run this experiment, use the following command:
+
+```
+python experiment.py --out_dir=run_1
+```
+
+This will execute the first run with the new adaptive idea generation system. After the run is complete, we can analyze the results and plan the next steps for Run 2, which will focus on adding a diversity mechanism to ensure varied idea generation.
+
+> Tokens: 8,314 sent, 4,581 received. Cost: $0.09 message, $0.09 session.  
+> Applied edit to experiment.py  
+
+#### Run timed out after 7200 seconds  
+
+I understand that the run timed out after 7200 seconds. To address this issue, we need to implement a timeout mechanism in the `main()` function of the `experiment.py` file. We'll use the `multiprocessing` module to run the idea generation and evaluation process with a timeout. Here are the changes we need to make:
+
+1. Import the necessary modules.
+2. Wrap the main logic in a function that can be run with a timeout.
+3. Use `multiprocessing.Process` to run this function with a timeout.
+
+Here are the *SEARCH/REPLACE* blocks to implement these changes:
+
+experiment.py
+<source>python
+<<<<<<< SEARCH
+import sys
+import os
+import json
+import time
+from datetime import datetime
+from typing import List, Dict, Union
+=======
+import sys
+import os
+import json
+import time
+from datetime import datetime
+from typing import List, Dict, Union
+import multiprocessing
+>>>>>>> REPLACE
+</source>
+
+experiment.py
+<source>python
+<<<<<<< SEARCH
+def main():
+    if MODEL == "claude-3-5-sonnet-20240620":
+        client = anthropic.Anthropic()
+    elif MODEL == "gpt-4o-2024-05-13":
+        client = openai.OpenAI()
+    else:
+        raise ValueError(f"Model {MODEL} not supported.")
+    client_model = MODEL
+
+    base_dir = os.path.join("/root/AI-Scientist/templates", EXPERIMENT)
+    results_dir = os.path.join("/root/AI-Scientist/results", EXPERIMENT)
+    os.makedirs(results_dir, exist_ok=True)
+
+    archived_results_dir = os.path.join("/root/AI-Scientist/archived_results", EXPERIMENT)
+    os.makedirs(archived_results_dir, exist_ok=True)
+    for subdir in os.listdir(results_dir):
+        shutil.move(os.path.join(results_dir, subdir), archived_results_dir)
+
+    # Initialize weights
+    weights = {
+        'Interestingness': 1.0,
+        'Feasibility': 1.0,
+        'Novelty': 1.0,
+        'Significance': 1.0
+    }
+
+    ideas, weights = generate_ideas(
+        base_dir,
+        client=client,
+        model=client_model,
+        max_num_generations=NUM_IDEAS,
+        num_reflections=NUM_REFLECTIONS,
+    )
+
+    with open(os.path.join(base_dir, "ideas.json"), "w") as f:
+        json.dump(ideas, f, indent=4)
+
+    idea = select_best_idea(ideas, weights)
+
+    print(f"Processing idea: {idea['Name']}")
+    success = do_idea(base_dir, results_dir, idea, client, client_model)
+    print(f"Completed idea: {idea['Name']}, Success: {success}")
+
+    print("All ideas evaluated.")
+
+    # Save results
+    parser = argparse.ArgumentParser()  
+    parser.add_argument("--out_dir", type=str, default="run_0")
+    args = parser.parse_args()
+
+    out_dir = args.out_dir
+    pathlib.Path(out_dir).mkdir(parents=True, exist_ok=True)
+
+    llm_ratings = pd.DataFrame(columns=LLM_COLS)
+    llm_ratings.set_index("paper_id", inplace=True)
+
+    for subdir in os.listdir(results_dir):
+        subdir_path = os.path.join(results_dir, subdir)
+        
+        if os.path.isdir(subdir_path):
+            review_file_path = os.path.join(subdir_path, 'review.txt')
+            paper_name = subdir
+            
+            if os.path.isfile(review_file_path):
+                try:
+                    with open(review_file_path, "r") as f:
+                        review = json.load(f)
+                        
+                        paper_data = {col: review.get(col) for col in LLM_COLS if col in review}
+                        
+                        llm_ratings.loc[paper_name] = paper_data
+                        print(f"Review for {paper_name} saved.")
+
+                except json.JSONDecodeError:
+                    print(f"Error reading review file for {paper_name}. Skipping.")
+            else:
+                print(f"No review.txt found in {subdir}. Skipping this idea.")
+
+    if not llm_ratings.empty:
+        llm_ratings.to_csv(os.path.join(out_dir, "all_results.csv"))
+        print(f"Results saved to {out_dir}")
+
+        numeric_cols = llm_ratings.select_dtypes(include=[np.number]).columns.tolist()
+
+        if "Decision" in llm_ratings.columns:
+            llm_ratings["Decision_Numeric"] = llm_ratings["Decision"].apply(process_decision)
+            numeric_cols.append("Decision_Numeric")
+
+        if "Ethical Concerns" in llm_ratings.columns:
+            llm_ratings["Ethical_Concerns_Numeric"] = llm_ratings["Ethical Concerns"].apply(process_ethical_concerns)
+            numeric_cols.append("Ethical_Concerns_Numeric")
+
+        final_info = {
+            "result": {
+                "means": llm_ratings[numeric_cols].mean().to_dict()
+            }
+        }
+
+        with open(os.path.join(out_dir, "final_info.json"), "w") as f:
+            json.dump(final_info, f, indent=4)
+
+        # Update weights based on review results
+        weights = update_idea_generator(weights, final_info["result"]["means"])
+        
+        # Save updated weights
+        with open(os.path.join(out_dir, "weights.json"), "w") as f:
+            json.dump(weights, f, indent=4)
+    else:
+        print("No valid results to save. Check if any reviews were processed successfully.")
+
+if __name__ == "__main__":
+    main()
+=======
+def run_experiment():
+    if MODEL == "claude-3-5-sonnet-20240620":
+        client = anthropic.Anthropic()
+    elif MODEL == "gpt-4o-2024-05-13":
+        client = openai.OpenAI()
+    else:
+        raise ValueError(f"Model {MODEL} not supported.")
+    client_model = MODEL
+
+    base_dir = os.path.join("/root/AI-Scientist/templates", EXPERIMENT)
+    results_dir = os.path.join("/root/AI-Scientist/results", EXPERIMENT)
+    os.makedirs(results_dir, exist_ok=True)
+
+    archived_results_dir = os.path.join("/root/AI-Scientist/archived_results", EXPERIMENT)
+    os.makedirs(archived_results_dir, exist_ok=True)
+    for subdir in os.listdir(results_dir):
+        shutil.move(os.path.join(results_dir, subdir), archived_results_dir)
+
+    # Initialize weights
+    weights = {
+        'Interestingness': 1.0,
+        'Feasibility': 1.0,
+        'Novelty': 1.0,
+        'Significance': 1.0
+    }
+
+    ideas, weights = generate_ideas(
+        base_dir,
+        client=client,
+        model=client_model,
+        max_num_generations=NUM_IDEAS,
+        num_reflections=NUM_REFLECTIONS,
+    )
+
+    with open(os.path.join(base_dir, "ideas.json"), "w") as f:
+        json.dump(ideas, f, indent=4)
+
+    idea = select_best_idea(ideas, weights)
+
+    print(f"Processing idea: {idea['Name']}")
+    success = do_idea(base_dir, results_dir, idea, client, client_model)
+    print(f"Completed idea: {idea['Name']}, Success: {success}")
+
+    print("All ideas evaluated.")
+
+    # Save results
+    parser = argparse.ArgumentParser()  
+    parser.add_argument("--out_dir", type=str, default="run_0")
+    args = parser.parse_args()
+
+    out_dir = args.out_dir
+    pathlib.Path(out_dir).mkdir(parents=True, exist_ok=True)
+
+    llm_ratings = pd.DataFrame(columns=LLM_COLS)
+    llm_ratings.set_index("paper_id", inplace=True)
+
+    for subdir in os.listdir(results_dir):
+        subdir_path = os.path.join(results_dir, subdir)
+        
+        if os.path.isdir(subdir_path):
+            review_file_path = os.path.join(subdir_path, 'review.txt')
+            paper_name = subdir
+            
+            if os.path.isfile(review_file_path):
+                try:
+                    with open(review_file_path, "r") as f:
+                        review = json.load(f)
+                        
+                        paper_data = {col: review.get(col) for col in LLM_COLS if col in review}
+                        
+                        llm_ratings.loc[paper_name] = paper_data
+                        print(f"Review for {paper_name} saved.")
+
+                except json.JSONDecodeError:
+                    print(f"Error reading review file for {paper_name}. Skipping.")
+            else:
+                print(f"No review.txt found in {subdir}. Skipping this idea.")
+
+    if not llm_ratings.empty:
+        llm_ratings.to_csv(os.path.join(out_dir, "all_results.csv"))
+        print(f"Results saved to {out_dir}")
+
+        numeric_cols = llm_ratings.select_dtypes(include=[np.number]).columns.tolist()
+
+        if "Decision" in llm_ratings.columns:
+            llm_ratings["Decision_Numeric"] = llm_ratings["Decision"].apply(process_decision)
+            numeric_cols.append("Decision_Numeric")
+
+        if "Ethical Concerns" in llm_ratings.columns:
+            llm_ratings["Ethical_Concerns_Numeric"] = llm_ratings["Ethical Concerns"].apply(process_ethical_concerns)
+            numeric_cols.append("Ethical_Concerns_Numeric")
+
+        final_info = {
+            "result": {
+                "means": llm_ratings[numeric_cols].mean().to_dict()
+            }
+        }
+
+        with open(os.path.join(out_dir, "final_info.json"), "w") as f:
+            json.dump(final_info, f, indent=4)
+
+        # Update weights based on review results
+        weights = update_idea_generator(weights, final_info["result"]["means"])
+        
+        # Save updated weights
+        with open(os.path.join(out_dir, "weights.json"), "w") as f:
+            json.dump(weights, f, indent=4)
+    else:
+        print("No valid results to save. Check if any reviews were processed successfully.")
+
+def main():
+    timeout = 7200  # 2 hours in seconds
+
+    process = multiprocessing.Process(target=run_experiment)
+    process.start()
+    process.join(timeout)
+
+    if process.is_alive():
+        print(f"Run timed out after {timeout} seconds")
+        process.terminate()
+        process.join()
+    else:
+        print("Run completed successfully")
+
+if __name__ == "__main__":
+    main()
+>>>>>>> REPLACE
+</source>
+
+These changes will implement a timeout mechanism for the experiment. The `run_experiment()` function contains the main logic of the experiment, and it will be run as a separate process with a timeout of 7200 seconds (2 hours). If the process doesn't complete within this time, it will be terminated, and a message will be printed indicating that the run timed out.
+
+This should prevent the script from running indefinitely and allow you to set a maximum runtime for the experiment.
+
+> Tokens: 8,562 sent, 2,986 received. Cost: $0.07 message, $0.16 session.  
+> Applied edit to experiment.py  

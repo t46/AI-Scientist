@@ -1,0 +1,29 @@
+[
+    {
+        "Name": "idea_generation_methods",
+        "Title": "Idea Generation Methods: Comparing different idea generation methods for automated research paper generation.",
+        "Experiment": "In this experiment, we compare the performance of different idea generation methods (perform_generate_idea()) on automated research paper generation performance. We use the review score by (perform_review()) as the evaluation metric.",
+        "Interestingness": 2,
+        "Feasibility": 10,
+        "Novelty": 2,
+        "novel": true
+    },
+    {
+        "Name": "diverse_perspectives",
+        "Title": "Harnessing Diverse Perspectives in Idea Generation for Automated Research Paper Generation",
+        "Experiment": "This experiment enhances the generate_ideas() function to simulate idea generation from different personas (e.g., data scientist, domain expert, ethicist) using different prompt templates or configurations. We label and evaluate ideas based on their originating persona and compare the performance of experiments derived from these diverse ideas using the perform_review() function. The success will be measured by review scores and the diversity of topics and approaches covered.",
+        "Interestingness": 8,
+        "Feasibility": 7,
+        "Novelty": 8,
+        "novel": true
+    },
+    {
+        "Name": "cross_disciplinary_knowledge",
+        "Title": "Integrating Cross-Disciplinary Knowledge in Idea Generation for Automated Research Paper Generation",
+        "Experiment": "This experiment enhances the generate_ideas() function to simulate idea generation from various academic disciplines, such as computer science, psychology, and economics, by using different prompt templates or configurations. We will create specialized prompts for each discipline and generate ideas accordingly. These ideas will be labeled based on their originating discipline. We will then evaluate the performance of experiments derived from these cross-disciplinary ideas using the perform_review() function. Success will be measured by review scores and the interdisciplinary nature of the topics and approaches covered.",
+        "Interestingness": 9,
+        "Feasibility": 7,
+        "Novelty": 9,
+        "novel": true
+    }
+]

@@ -1,0 +1,5 @@
+# Title: Idea Generation Methods: Comparing different idea generation methods for automated research paper generation.
+# Experiment description: In this experiment, we compare the performance of different idea generation methods (perform_generate_idea()) on automated research paper generation performance. We use the review score by (perform_review()) as the evaluation metric.
+## Run 0: Baseline
+Results: {'result': {'Soundness': 2.0, 'Presentation': 2.0, 'Contribution': 2.0, 'Overall': 3.0, 'Confidence': 4.0, 'Originality': 2.0, 'Quality': 2.0, 'Clarity': 2.0, 'Significance': 2.0, 'Decision_Numeric': 0.0, 'Ethical_Concerns_Numeric': 0.0}}
+Description: Baseline results.

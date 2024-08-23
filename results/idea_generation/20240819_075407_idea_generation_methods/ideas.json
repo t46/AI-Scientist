@@ -1,0 +1,29 @@
+[
+    {
+        "Name": "idea_generation_methods",
+        "Title": "Idea Generation Methods: Comparing different idea generation methods for automated research paper generation.",
+        "Experiment": "In this experiment, we compare the performance of different idea generation methods (perform_generate_idea()) on automated research paper generation performance. We use the review score by (perform_review()) as the evaluation metric.",
+        "Interestingness": 2,
+        "Feasibility": 10,
+        "Novelty": 2,
+        "novel": true
+    },
+    {
+        "Name": "diverse_idea_generation",
+        "Title": "Diverse Idea Generation: Integrating Key Multidisciplinary Perspectives in Automated Research",
+        "Experiment": "Enhance the generate_ideas() function to incorporate insights from key disciplines like sociology, psychology, and economics. Modify prompts to request ideas from these areas. Use existing NLP models to evaluate the novelty and relevance of ideas. Define new metrics for evaluation, such as creativity score and cross-disciplinary relevance, and compare the performance of this method with traditional methods using these metrics and review scores.",
+        "Interestingness": 9,
+        "Feasibility": 8,
+        "Novelty": 9,
+        "novel": true
+    },
+    {
+        "Name": "iterative_feedback",
+        "Title": "Iterative Feedback for Adaptive Idea Generation in Automated Research",
+        "Experiment": "Modify the generate_ideas() function to include a feedback loop. Implement small-scale preliminary experiments using perform_experiment() to gather quick performance metrics such as initial review scores and resource utilization. Use these metrics to refine and adapt subsequent ideas in real-time. Compare the performance of this adaptive method with traditional static methods using final review scores and other relevant metrics.",
+        "Interestingness": 8,
+        "Feasibility": 8,
+        "Novelty": 8,
+        "novel": true
+    }
+]

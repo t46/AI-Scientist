@@ -1,0 +1,5 @@
+# Title: Diverse Idea Generation: Integrating Key Multidisciplinary Perspectives in Automated Research
+# Experiment description: Enhance the generate_ideas() function to incorporate insights from key disciplines like sociology, psychology, and economics. Modify prompts to request ideas from these areas. Use existing NLP models to evaluate the novelty and relevance of ideas. Define new metrics for evaluation, such as creativity score and cross-disciplinary relevance, and compare the performance of this method with traditional methods using these metrics and review scores.
+## Run 0: Baseline
+Results: {'result': {'Soundness': 2.0, 'Presentation': 2.0, 'Contribution': 2.0, 'Overall': 3.0, 'Confidence': 4.0, 'Originality': 2.0, 'Quality': 2.0, 'Clarity': 2.0, 'Significance': 2.0, 'Decision_Numeric': 0.0, 'Ethical_Concerns_Numeric': 0.0}}
+Description: Baseline results.

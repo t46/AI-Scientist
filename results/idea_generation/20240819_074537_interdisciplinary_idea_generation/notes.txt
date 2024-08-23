@@ -1,0 +1,5 @@
+# Title: Interdisciplinary Idea Generation: Enhancing Automated Research Paper Generation
+# Experiment description: Modify the generate_ideas function to produce ideas from various domains (e.g., biology, physics, sociology) by tweaking model prompts. Integrate these interdisciplinary ideas into the experiment pipeline and evaluate their performance using review scores from perform_review(). Compare the review scores of interdisciplinary ideas against those from a single domain to test the hypothesis that interdisciplinary ideas yield higher scores.
+## Run 0: Baseline
+Results: {'result': {'Soundness': 2.0, 'Presentation': 2.0, 'Contribution': 2.0, 'Overall': 3.0, 'Confidence': 4.0, 'Originality': 2.0, 'Quality': 2.0, 'Clarity': 2.0, 'Significance': 2.0, 'Decision_Numeric': 0.0, 'Ethical_Concerns_Numeric': 0.0}}
+Description: Baseline results.

@@ -1,0 +1,29 @@
+[
+    {
+        "Name": "idea_generation_methods",
+        "Title": "Idea Generation Methods: Comparing different idea generation methods for automated research paper generation.",
+        "Experiment": "In this experiment, we compare the performance of different idea generation methods (perform_generate_idea()) on automated research paper generation performance. We use the review score by (perform_review()) as the evaluation metric.",
+        "Interestingness": 2,
+        "Feasibility": 10,
+        "Novelty": 2,
+        "novel": true
+    },
+    {
+        "Name": "domain_specific_idea_generation",
+        "Title": "Domain-Specific Idea Generation: Enhancing the Relevance and Impact of Automated Research Paper Generation",
+        "Experiment": "In this experiment, we will extend the idea generation process to incorporate domain-specific contexts. The generate_ideas function will be modified to accept a domain parameter, which will guide the idea generation process with domain-specific principles. We will start with three domains: healthcare, robotics, and social sciences. The generated ideas will be evaluated using the perform_review function, comparing their novelty, feasibility, and interestingness against a baseline of non-domain-specific ideas.",
+        "Interestingness": 8,
+        "Feasibility": 7,
+        "Novelty": 8,
+        "novel": true
+    },
+    {
+        "Name": "healthcare_multi_modal_idea_generation",
+        "Title": "Healthcare Multi-Modal Idea Generation: Combining Medical Text and Imaging Data for Research Ideas",
+        "Experiment": "In this experiment, we extend the idea generation process to incorporate multi-modal data inputs, specifically combining medical text and imaging data. The generate_ideas function will be modified to accept and process both types of inputs, utilizing pre-trained models for image analysis. We will start with a dataset of medical literature and corresponding images (e.g., MRI, X-ray) to generate healthcare research ideas. The impact of multi-modal idea generation will be evaluated by comparing the novelty, feasibility, and interestingness scores of the generated ideas against a baseline of text-only ideas, using the perform_review function.",
+        "Interestingness": 9,
+        "Feasibility": 7,
+        "Novelty": 9,
+        "novel": true
+    }
+]

@@ -1,0 +1,5 @@
+# Title: Human-in-the-Loop Idea Generation: Improving Automated Research Paper Generation with Expert Feedback
+# Experiment description: Modify the generate_ideas function to incorporate a batch feedback loop where domain experts review, rate, and provide comments on a batch of generated ideas. Implement a mechanism to process this feedback and refine the idea generation model in subsequent iterations. Compare the review scores of ideas generated with and without user feedback to evaluate the impact of HITL on the quality of generated research ideas.
+## Run 0: Baseline
+Results: {'result': {'Soundness': 2.0, 'Presentation': 2.0, 'Contribution': 2.0, 'Overall': 3.0, 'Confidence': 4.0, 'Originality': 2.0, 'Quality': 2.0, 'Clarity': 2.0, 'Significance': 2.0, 'Decision_Numeric': 0.0, 'Ethical_Concerns_Numeric': 0.0}}
+Description: Baseline results.

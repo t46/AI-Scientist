@@ -1,0 +1,5 @@
+# Title: Temporal Trend-Based Idea Generation for Future-Oriented Research
+# Experiment description: 1. Modify generate_ideas() to integrate a statistical method for temporal trend analysis. Use historical research data to identify trends and predict emerging topics. 2. Generate research ideas based on these predicted trends. 3. Evaluate the generated ideas using perform_review() and gather feedback on novelty, interestingness, and review scores. 4. Compare the performance of this method against the baseline using the collected review scores, focusing on improvements in novelty, interestingness, and overall review scores.
+## Run 0: Baseline
+Results: {'result': {'Soundness': 2.0, 'Presentation': 2.0, 'Contribution': 2.0, 'Overall': 3.0, 'Confidence': 4.0, 'Originality': 2.0, 'Quality': 2.0, 'Clarity': 2.0, 'Significance': 2.0, 'Decision_Numeric': 0.0, 'Ethical_Concerns_Numeric': 0.0}}
+Description: Baseline results.

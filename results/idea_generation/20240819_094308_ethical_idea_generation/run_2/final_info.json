@@ -1,0 +1,17 @@
+{
+    "result": {
+        "means": {
+            "Soundness": 2.0,
+            "Presentation": 2.5,
+            "Contribution": 2.0,
+            "Overall": 3.5,
+            "Confidence": 4.0,
+            "Originality": 2.5,
+            "Quality": 2.0,
+            "Clarity": 2.5,
+            "Significance": 2.5,
+            "Decision_Numeric": 0.0,
+            "Ethical_Concerns_Numeric": 0.0
+        }
+    }
+}

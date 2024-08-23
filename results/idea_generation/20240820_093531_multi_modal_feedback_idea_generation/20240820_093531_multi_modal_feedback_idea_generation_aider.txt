@@ -1,0 +1,23 @@
+
+# aider chat started at 2024-08-20 09:35:31
+
+
+#### Your goal is to implement the following idea: Multi-Modal Feedback for Enhanced Idea Generation in Automated Research Paper Generation.  
+#### The proposed experiment is as follows: In this experiment, we will extend the existing idea generation method to include a composite evaluation metric that combines novelty, feasibility, significance, and interestingness. Additionally, we will implement a multi-modal feedback loop where different AI models provide feedback on different aspects of the generated ideas. These AI models will be selected and trained based on their expertise in evaluating specific metrics. We will compare the performance of this new method against the baseline method using the review scores from perform_review() as the evaluation metric..  
+#### You are given a total of up to 5 runs to complete the necessary experiments. You do not need to use all 5.  
+####   
+#### First, plan the list of experiments you would like to run. For example, if you are sweeping over a specific hyperparameter, plan each value you would like to test for each run.  
+####   
+#### Note that we already provide the vanilla baseline results, so you do not need to re-run it.  
+####   
+#### For reference, the baseline results are as follows:  
+####   
+#### {'result': {'Soundness': 2.0, 'Presentation': 2.0, 'Contribution': 2.0, 'Overall': 3.0, 'Confidence': 4.0, 'Originality': 2.0, 'Quality': 2.0, 'Clarity': 2.0, 'Significance': 2.0, 'Decision_Numeric': 0.0, 'Ethical_Concerns_Numeric': 0.0}}  
+####   
+#### After you complete each change, we will run the command `python experiment.py --out_dir=run_i' where i is the run number and evaluate the results.  
+#### YOUR PROPOSED CHANGE MUST USE THIS COMMAND FORMAT, DO NOT ADD ADDITIONAL COMMAND LINE ARGS.  
+#### You can then implement the next thing on your list.  
+>  
+>  
+> ^C again to exit  
+> Tokens: 8,995 sent, 0 received. Cost: $0.04 message, $0.04 session.  

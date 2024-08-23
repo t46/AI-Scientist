@@ -1,0 +1,10 @@
+# Title: Interdisciplinary Idea Generation: Enhancing Automated Research Paper Generation with Diverse Perspectives
+# Experiment description: In this experiment, we modify the generate_ideas() function to incorporate interdisciplinary approaches. We will focus on three specific domains: biology, physics, and sociology. This involves using a wider range of prompts or datasets from these domains. We then run the modified idea generation method and compare it against the baseline on the review scores. The impact of interdisciplinary approaches on the novelty and quality of the generated research ideas will be evaluated.
+## Run 0: Baseline
+Results: {'result': {'Soundness': 2.0, 'Presentation': 2.0, 'Contribution': 2.0, 'Overall': 3.0, 'Confidence': 4.0, 'Originality': 2.0, 'Quality': 2.0, 'Clarity': 2.0, 'Significance': 2.0, 'Decision_Numeric': 0.0, 'Ethical_Concerns_Numeric': 0.0}}
+Description: Baseline results.
+
+## Run 1: Biology Domain
+Experiment description: In this experiment, we modified the generate_ideas() function to incorporate prompts and datasets from the biology domain. The goal was to evaluate the impact of using biology-specific data on the novelty and quality of the generated research ideas.
+Results: {'result': {'Soundness': 2.0, 'Presentation': 2.0, 'Contribution': 2.0, 'Overall': 3.0, 'Confidence': 4.0, 'Originality': 2.0, 'Quality': 2.0, 'Clarity': 2.0, 'Significance': 2.0, 'Decision_Numeric': 0.0, 'Ethical_Concerns_Numeric': 0.0}}
+Description: The results for the biology domain were identical to the baseline, indicating no significant impact on the novelty and quality of the generated research ideas.

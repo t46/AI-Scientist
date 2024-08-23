@@ -1,0 +1,38 @@
+# Title: Ethical Idea Generation: Integrating Ethical Considerations into Automated Research Paper Generation
+# Experiment description: In this experiment, we will modify the generate_ideas() function to incorporate ethical considerations. This involves using prompts that specifically ask the model to assess potential ethical concerns alongside generating the research ideas, guided by existing ethical guidelines. We will implement an ethical review checklist based on common research ethics principles to score the ethical soundness of each idea. The modified idea generation method will be compared against the baseline on both review scores and the new ethical rating metric. The impact of embedding ethical analysis on the quality, novelty, and ethical soundness of the generated research ideas will be evaluated.
+## Run 0: Baseline
+Results: {'result': {'Soundness': 2.0, 'Presentation': 2.0, 'Contribution': 2.0, 'Overall': 3.0, 'Confidence': 4.0, 'Originality': 2.0, 'Quality': 2.0, 'Clarity': 2.0, 'Significance': 2.0, 'Decision_Numeric': 0.0, 'Ethical_Concerns_Numeric': 0.0}}
+Description: Baseline results.
+
+## Run 1: Ethical Considerations in Prompt
+Experiment description: In this run, we modified the `generate_ideas` function to include ethical considerations in the prompt. The prompt was updated to ask the model to assess potential ethical concerns alongside generating the research ideas, guided by existing ethical guidelines.
+Results: {'result': {'Soundness': 2.0, 'Presentation': 2.0, 'Contribution': 2.0, 'Overall': 3.0, 'Confidence': 4.0, 'Originality': 2.0, 'Quality': 2.0, 'Clarity': 2.5, 'Significance': 2.0, 'Decision_Numeric': 0.0, 'Ethical_Concerns_Numeric': 0.0}}
+Description: The results indicate that incorporating ethical considerations into the prompt did not significantly impact the scores compared to the baseline.
+
+## Run 2: Ethical Review Checklist
+Experiment description: In this run, we implemented an ethical review checklist to score the ethical soundness of each idea. The checklist was based on common research ethics principles, and the prompt was updated to include this checklist. The goal was to see if a more structured approach to ethical considerations would improve the quality and ethical soundness of the generated ideas.
+Results: {'result': {'Soundness': 2.0, 'Presentation': 2.5, 'Contribution': 2.0, 'Overall': 3.5, 'Confidence': 4.0, 'Originality': 2.5, 'Quality': 2.0, 'Clarity': 2.5, 'Significance': 2.5, 'Decision_Numeric': 0.0, 'Ethical_Concerns_Numeric': 0.0}}
+Description: The results show a slight improvement in some metrics, such as Presentation, Overall, Originality, and Significance. However, the impact on ethical concerns remains negligible.
+
+# Plot Descriptions
+
+## Comparison of Review Results across Different Runs
+Filename: comparison_plots.png
+Description: This plot provides a visual comparison of various metrics across different experimental runs. Each subplot represents a different metric, such as Overall, Soundness, Presentation, Contribution, Originality, Quality, Clarity, and Significance. The box plots show the distribution of scores for each run, with the baseline (run_0) highlighted in blue and other runs in red. Statistical significance is indicated by an asterisk (*) above the corresponding run if the p-value is less than 0.05.
+
+## Comparison of Acceptance Rates across Different Runs
+Filename: decision_comparison.png
+Description: This plot compares the acceptance rates of ideas across different experimental runs. The bar chart shows the proportion of ideas accepted in each run, with the baseline (run_0) highlighted in blue and other runs in red. The acceptance rate is calculated as the percentage of ideas that received an "Accept" decision. The height of each bar represents the acceptance rate, and the exact value is displayed above each bar.
+
+## Run 3: Reduced Number of Ideas and Reflections
+Experiment description: In this run, we reduced the number of ideas generated and the number of reflections per idea to ensure the process completes within the time limit. The goal was to evaluate if reducing the number of ideas and reflections impacts the quality and ethical soundness of the generated ideas.
+Results: {'result': {'Soundness': 2.0, 'Presentation': 2.0, 'Contribution': 2.0, 'Overall': 4.0, 'Confidence': 4.0, 'Originality': 2.0, 'Quality': 2.0, 'Clarity': 3.0, 'Significance': 2.0, 'Decision_Numeric': 0.0, 'Ethical_Concerns_Numeric': 0.0}}
+Description: The results indicate that reducing the number of ideas and reflections did not significantly impact the scores compared to the baseline. However, there was an improvement in the Overall and Clarity metrics.
+
+## Run 3: Reduced Number of Ideas and Reflections
+Experiment description: In this run, we will reduce the number of ideas generated and the number of reflections per idea to ensure the process completes within the time limit. The goal is to evaluate if reducing the number of ideas and reflections impacts the quality and ethical soundness of the generated ideas.
+
+## Run 2: Ethical Review Checklist
+Experiment description: In this run, we implemented an ethical review checklist to score the ethical soundness of each idea. The checklist was based on common research ethics principles, and the prompt was updated to include this checklist. The goal was to see if a more structured approach to ethical considerations would improve the quality and ethical soundness of the generated ideas.
+Results: {'result': {'Soundness': 2.0, 'Presentation': 2.5, 'Contribution': 2.0, 'Overall': 3.5, 'Confidence': 4.0, 'Originality': 2.5, 'Quality': 2.0, 'Clarity': 2.5, 'Significance': 2.5, 'Decision_Numeric': 0.0, 'Ethical_Concerns_Numeric': 0.0}}
+Description: The results show a slight improvement in some metrics, such as Presentation, Overall, Originality, and Significance. However, the impact on ethical concerns remains negligible.

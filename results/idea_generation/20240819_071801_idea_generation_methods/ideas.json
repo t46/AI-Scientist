@@ -1,0 +1,29 @@
+[
+    {
+        "Name": "idea_generation_methods",
+        "Title": "Idea Generation Methods: Comparing different idea generation methods for automated research paper generation.",
+        "Experiment": "In this experiment, we compare the performance of different idea generation methods (perform_generate_idea()) on automated research paper generation performance. We use the review score by (perform_review()) as the evaluation metric.",
+        "Interestingness": 2,
+        "Feasibility": 10,
+        "Novelty": 2,
+        "novel": true
+    },
+    {
+        "Name": "iterative_reflection",
+        "Title": "Iterative Reflection: Enhancing AI-Generated Research Ideas through Multiple Iterations of Review and Refinement",
+        "Experiment": "In this experiment, we generate an initial set of research ideas and iteratively refine them through 5 cycles of review and reflection. Each iteration involves evaluating the ideas using perform_review(), refining them based on feedback, and re-evaluating their quality. Feedback will be systematically incorporated to improve both the novelty and feasibility of the ideas. The primary metrics for evaluation will be the review scores and improvements in novelty and feasibility ratings over the iterations. Success will be measured as a statistically significant improvement in these metrics across iterations.",
+        "Interestingness": 8,
+        "Feasibility": 7,
+        "Novelty": 7,
+        "novel": true
+    },
+    {
+        "Name": "sequential_model_collaboration",
+        "Title": "Sequential Model Collaboration: Enhancing Research Idea Generation with AI Model Refinement",
+        "Experiment": "In this experiment, we will employ multiple AI models (e.g., GPT-4 and Claude) in a sequential collaboration framework to generate and refine research ideas. One model will generate an initial set of ideas, and another model will refine these ideas. The final set of refined ideas will be evaluated using perform_review(). The performance of the sequential model collaboration will be compared to single-model generation in terms of review scores, novelty, and feasibility. Success will be measured as a statistically significant improvement in these metrics for the collaborative approach.",
+        "Interestingness": 9,
+        "Feasibility": 7,
+        "Novelty": 8,
+        "novel": true
+    }
+]

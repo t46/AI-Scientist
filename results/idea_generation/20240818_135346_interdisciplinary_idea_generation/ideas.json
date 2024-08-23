@@ -1,0 +1,26 @@
+[
+    {
+        "Name": "idea_generation_methods",
+        "Title": "Idea Generation Methods: Comparing different idea generation methods for automated research paper generation.",
+        "Experiment": "In this experiment, we compare the performance of different idea generation methods (perform_generate_idea()) on automated research paper generation performance. We use the review score by (perform_review()) as the evaluation metric.",
+        "Interestingness": 2,
+        "Feasibility": 10,
+        "Novelty": 2
+    },
+    {
+        "Name": "interdisciplinary_idea_generation",
+        "Title": "Exploring Interdisciplinary Idea Generation for Automated Research Paper Creation",
+        "Experiment": "In this experiment, we modify the generate_ideas() function to integrate outputs from models trained on different domains (e.g., scientific literature, humanities, social sciences). Specifically, we will select pre-trained models or fine-tune existing models on domain-specific datasets. We will use a method to combine and refine these outputs, such as consensus generation or ensemble methods. The performance of interdisciplinary idea generation will be compared with single-domain idea generation using review scores, diversity, and coherence of the ideas as evaluation metrics.",
+        "Interestingness": 9,
+        "Feasibility": 7,
+        "Novelty": 8
+    },
+    {
+        "Name": "feedback_incorporated_idea_generation",
+        "Title": "Enhancing Idea Generation with User Feedback for Automated Research Paper Creation",
+        "Experiment": "In this experiment, we modify the generate_ideas() function to incorporate user feedback. We will present a set of initial ideas to a user (or simulate user feedback), collect feedback (ratings, comments, suggestions) through a simple script, and refine the ideas based on this feedback. We will allow for multiple rounds of feedback and refinement. The performance of this feedback-incorporated idea generation method will be compared with the baseline method using review scores, relevance, and novelty of the generated ideas as evaluation metrics.",
+        "Interestingness": 8,
+        "Feasibility": 7,
+        "Novelty": 7
+    }
+]

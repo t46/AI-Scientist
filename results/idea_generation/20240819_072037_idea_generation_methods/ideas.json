@@ -1,0 +1,29 @@
+[
+    {
+        "Name": "idea_generation_methods",
+        "Title": "Idea Generation Methods: Comparing different idea generation methods for automated research paper generation.",
+        "Experiment": "In this experiment, we compare the performance of different idea generation methods (perform_generate_idea()) on automated research paper generation performance. We use the review score by (perform_review()) as the evaluation metric.",
+        "Interestingness": 2,
+        "Feasibility": 10,
+        "Novelty": 2,
+        "novel": true
+    },
+    {
+        "Name": "diverse_perspective_idea_generation",
+        "Title": "Impact of Diverse Perspectives on Automated Research Paper Generation",
+        "Experiment": "This experiment involves developing a new idea generation method that incorporates diverse disciplinary perspectives by using prompts designed to elicit responses from different fields (e.g., science, humanities, social sciences). We will compare the quality and novelty of research papers generated using this method against those generated using standard methods. The evaluation will utilize the review score by perform_review() as the primary metric.",
+        "Interestingness": 8,
+        "Feasibility": 8,
+        "Novelty": 8,
+        "novel": true
+    },
+    {
+        "Name": "contextual_enrichment_idea_generation",
+        "Title": "Enhancing Automated Research Paper Generation with Contextual Enrichment",
+        "Experiment": "This experiment involves developing a new idea generation method that incorporates contextual enrichment by using a pre-curated dataset of recent academic literature and trending topics. The generate_ideas() function will be updated to include this contextual information during the idea generation process. The quality and novelty of research papers generated using this method will be compared against those generated using standard methods. The evaluation will utilize the review score by perform_review() as the primary metric.",
+        "Interestingness": 9,
+        "Feasibility": 8,
+        "Novelty": 9,
+        "novel": true
+    }
+]

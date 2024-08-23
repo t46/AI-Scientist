@@ -1,0 +1,31 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Related Work}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Ethical AI Frameworks}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Automated Research Paper Generation}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Ethical Considerations in AI-Generated Content}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{Comparison and Contrast}{section.2}% 6
+\BOOKMARK [1][-]{section.3}{Background}{}% 7
+\BOOKMARK [2][-]{subsection.3.1}{AI and Ethics}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.2}{Automated Research Paper Generation}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.3}{Ethical Considerations in AI}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.4}{Problem Setting}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.5}{Formalism}{section.3}% 12
+\BOOKMARK [1][-]{section.4}{Method}{}% 13
+\BOOKMARK [2][-]{subsection.4.1}{Ethical Prompts}{section.4}% 14
+\BOOKMARK [2][-]{subsection.4.2}{Ethical Review Checklist}{section.4}% 15
+\BOOKMARK [2][-]{subsection.4.3}{Integration into Idea Generation Process}{section.4}% 16
+\BOOKMARK [2][-]{subsection.4.4}{Implementation Details}{section.4}% 17
+\BOOKMARK [1][-]{section.5}{Experimental Setup}{}% 18
+\BOOKMARK [2][-]{subsection.5.1}{Dataset}{section.5}% 19
+\BOOKMARK [2][-]{subsection.5.2}{Evaluation Metrics}{section.5}% 20
+\BOOKMARK [2][-]{subsection.5.3}{Hyperparameters}{section.5}% 21
+\BOOKMARK [2][-]{subsection.5.4}{Implementation Details}{section.5}% 22
+\BOOKMARK [1][-]{section.6}{Results}{}% 23
+\BOOKMARK [2][-]{subsection.6.1}{Baseline Results}{section.6}% 24
+\BOOKMARK [2][-]{subsection.6.2}{Ethical Considerations in Prompt}{section.6}% 25
+\BOOKMARK [2][-]{subsection.6.3}{Ethical Review Checklist}{section.6}% 26
+\BOOKMARK [2][-]{subsection.6.4}{Reduced Number of Ideas and Reflections}{section.6}% 27
+\BOOKMARK [2][-]{subsection.6.5}{Comparison of Review Results}{section.6}% 28
+\BOOKMARK [2][-]{subsection.6.6}{Comparison of Acceptance Rates}{section.6}% 29
+\BOOKMARK [2][-]{subsection.6.7}{Limitations}{section.6}% 30
+\BOOKMARK [1][-]{section.7}{Conclusions and Future Work}{}% 31

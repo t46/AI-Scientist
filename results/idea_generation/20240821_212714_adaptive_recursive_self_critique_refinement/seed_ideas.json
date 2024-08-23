@@ -1,0 +1,12 @@
+[
+    {
+      "Name": "novel_idea_generation_methods",
+      "Title": "Novel Idea Generation Methods: Developing and comparing different idea generation methods for automated research paper generation.",
+      "Method": "We propose a new idea generation method that combines the strengths of different existing methods and improves their weaknesses.",
+      "Experiment": "In this experiment, we compare the performance of different idea generation methods (perform_generate_idea()) on automated research paper generation performance. We use the review score by (perform_review()) as the evaluation metric.",
+      "Interestingness": 1,
+      "Feasibility": 5,
+      "Novelty": 1,
+      "Significance": 1
+    }
+  ]

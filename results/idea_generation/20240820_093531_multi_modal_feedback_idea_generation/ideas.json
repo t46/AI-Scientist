@@ -1,0 +1,22 @@
+[
+    {
+        "Name": "novel_idea_generation_methods",
+        "Title": "Novel Idea Generation Methods: Developing and comparing different idea generation methods for automated research paper generation.",
+        "Method": "We propose a new idea generation method that combines the strengths of different existing methods and improves their weaknesses.",
+        "Experiment": "In this experiment, we compare the performance of different idea generation methods (perform_generate_idea()) on automated research paper generation performance. We use the review score by (perform_review()) as the evaluation metric.",
+        "Interestingness": 1,
+        "Feasibility": 5,
+        "Novelty": 1,
+        "Significance": 1
+    },
+    {
+        "Name": "multi_modal_feedback_idea_generation",
+        "Title": "Multi-Modal Feedback for Enhanced Idea Generation in Automated Research Paper Generation",
+        "Method": "We propose a new idea generation method that integrates multiple evaluation metrics into a composite score and incorporates feedback from multiple AI models specializing in different aspects of idea evaluation. The composite score will be a weighted sum of the individual metrics (novelty, feasibility, significance, and interestingness). Each specialized AI model will provide feedback on a specific aspect, and their feedback will be aggregated to form the composite score.",
+        "Experiment": "In this experiment, we will extend the existing idea generation method to include a composite evaluation metric that combines novelty, feasibility, significance, and interestingness. Additionally, we will implement a multi-modal feedback loop where different AI models provide feedback on different aspects of the generated ideas. These AI models will be selected and trained based on their expertise in evaluating specific metrics. We will compare the performance of this new method against the baseline method using the review scores from perform_review() as the evaluation metric.",
+        "Interestingness": 8,
+        "Feasibility": 7,
+        "Novelty": 8,
+        "Significance": 9
+    }
+]

@@ -1,0 +1,29 @@
+[
+    {
+        "Name": "idea_generation_methods",
+        "Title": "Idea Generation Methods: Comparing different idea generation methods for automated research paper generation.",
+        "Experiment": "In this experiment, we compare the performance of different idea generation methods (perform_generate_idea()) on automated research paper generation performance. We use the review score by (perform_review()) as the evaluation metric.",
+        "Interestingness": 2,
+        "Feasibility": 10,
+        "Novelty": 2,
+        "novel": true
+    },
+    {
+        "Name": "interdisciplinary_idea_generation",
+        "Title": "Interdisciplinary Idea Generation: Enhancing Automated Research Paper Generation with Diverse Perspectives",
+        "Experiment": "In this experiment, we modify the generate_ideas() function to incorporate interdisciplinary approaches. We will focus on three specific domains: biology, physics, and sociology. This involves using a wider range of prompts or datasets from these domains. We then run the modified idea generation method and compare it against the baseline on the review scores. The impact of interdisciplinary approaches on the novelty and quality of the generated research ideas will be evaluated.",
+        "Interestingness": 8,
+        "Feasibility": 8,
+        "Novelty": 9,
+        "novel": true
+    },
+    {
+        "Name": "ethical_idea_generation",
+        "Title": "Ethical Idea Generation: Integrating Ethical Considerations into Automated Research Paper Generation",
+        "Experiment": "In this experiment, we will modify the generate_ideas() function to incorporate ethical considerations. This involves using prompts that specifically ask the model to assess potential ethical concerns alongside generating the research ideas, guided by existing ethical guidelines. We will implement an ethical review checklist based on common research ethics principles to score the ethical soundness of each idea. The modified idea generation method will be compared against the baseline on both review scores and the new ethical rating metric. The impact of embedding ethical analysis on the quality, novelty, and ethical soundness of the generated research ideas will be evaluated.",
+        "Interestingness": 9,
+        "Feasibility": 8,
+        "Novelty": 8,
+        "novel": true
+    }
+]

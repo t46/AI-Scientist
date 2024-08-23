@@ -1,0 +1,5 @@
+# Title: Historical Analysis for Idea Generation: Leveraging Past Research Trends for Enhanced Research Proposals
+# Experiment description: We will implement a module to scrape and analyze past publications from key sources like arXiv over the last 20 years. The module will identify cyclical patterns and underexplored topics within this historical data. These insights will be integrated into the generate_ideas() function to produce historically-informed ideas. The resultant ideas will be evaluated using the perform_review() function to compare their performance against baseline ideas. Metrics such as diversity, novelty, and review scores will be used to assess the effectiveness of this historical analysis approach.
+## Run 0: Baseline
+Results: {'result': {'Soundness': 2.0, 'Presentation': 2.0, 'Contribution': 2.0, 'Overall': 3.0, 'Confidence': 4.0, 'Originality': 2.0, 'Quality': 2.0, 'Clarity': 2.0, 'Significance': 2.0, 'Decision_Numeric': 0.0, 'Ethical_Concerns_Numeric': 0.0}}
+Description: Baseline results.

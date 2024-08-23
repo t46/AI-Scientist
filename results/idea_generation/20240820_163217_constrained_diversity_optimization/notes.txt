@@ -1,0 +1,12 @@
+# Title: Constrained Diversity Optimization: A Novel Approach to Balanced and Rigorous Automated Research Idea Generation
+# Experiment description: 1. Define a set of scientific constraints (logical consistency, testability, potential for empirical validation).
+2. Implement a simple diversity metric based on key terms extracted from idea descriptions.
+3. Modify generate_ideas() to incorporate constraint checking and diversity optimization.
+4. Generate ideas in batches of 10, iteratively optimizing for diversity while ensuring each idea meets the scientific constraints.
+5. Implement a function to evaluate the overall diversity of the generated idea set.
+6. Compare the new method with baseline and previous methods on metrics of idea quality (using perform_review()) and overall set diversity.
+7. Analyze and visualize the distribution of ideas in the concept space to demonstrate diversity improvement.
+8. Evaluate the potential impact on creating more comprehensive and balanced research agendas.
+## Run 0: Baseline
+Results: {'result': {'Soundness': 2.0, 'Presentation': 2.0, 'Contribution': 2.0, 'Overall': 3.0, 'Confidence': 4.0, 'Originality': 2.0, 'Quality': 2.0, 'Clarity': 2.0, 'Significance': 2.0, 'Decision_Numeric': 0.0, 'Ethical_Concerns_Numeric': 0.0}}
+Description: Baseline results.

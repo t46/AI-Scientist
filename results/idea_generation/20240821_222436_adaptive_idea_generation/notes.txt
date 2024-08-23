@@ -1,0 +1,5 @@
+# Title: Adaptive Idea Generation through Metric-Guided Meta-Learning in Automated Research
+# Experiment description: 1. Modify generate_ideas() to use a weighted scoring system for idea selection. 2. Implement update_idea_generator() to adjust weights based on review metrics. 3. Add a diversity mechanism to ensure varied idea generation. 4. Compare the quality and diversity of ideas over multiple rounds (at least 10) against a non-adaptive baseline. 5. Analyze the evolution of weights to understand which factors contribute most to high-quality ideas.
+## Run 0: Baseline
+Results: {'result': {'Soundness': 2.0, 'Presentation': 2.0, 'Contribution': 2.0, 'Overall': 3.0, 'Confidence': 4.0, 'Originality': 3.0, 'Quality': 2.0, 'Clarity': 2.0, 'Significance': 2.0, 'Decision_Numeric': 0.0, 'Ethical_Concerns_Numeric': 0.0}}
+Description: Baseline results.

@@ -1,0 +1,23 @@
+
+# aider chat started at 2024-08-21 21:46:58
+
+
+#### Your goal is to implement the following idea: Adaptive Recursive Self-Critique and Refinement System for Robust and Diverse Idea Generation in Automated Research.  
+#### The proposed experiment is as follows: 1. Modify generate_ideas() to produce a small set of initial ideas. 2. Implement critique_ideas() function that analyzes ideas for potential weaknesses, contradictions, or areas for improvement, incorporating both internal logic and external research criteria. 3. Create refine_ideas() function that takes original ideas and their critiques as input and produces improved versions. 4. Develop an adaptive loop in the main idea generation process that calls critique_ideas() and refine_ideas() multiple times, with the number of iterations based on available computational resources. 5. Implement a diversity maintenance mechanism to ensure a variety of high-quality ideas are preserved throughout the process. 6. Add a quantitative evaluation step after each iteration to measure idea improvement. 7. Use perform_review() to evaluate both the initial and final sets of ideas. 8. Compare the quality, robustness, diversity, and potential impact of ideas generated through ARSCRS with those from previous methods..  
+#### You are given a total of up to 5 runs to complete the necessary experiments. You do not need to use all 5.  
+####   
+#### First, plan the list of experiments you would like to run. For example, if you are sweeping over a specific hyperparameter, plan each value you would like to test for each run.  
+####   
+#### Note that we already provide the vanilla baseline results, so you do not need to re-run it.  
+####   
+#### For reference, the baseline results are as follows:  
+####   
+#### {'result': {'Soundness': 2.0, 'Presentation': 2.0, 'Contribution': 2.0, 'Overall': 3.0, 'Confidence': 4.0, 'Originality': 3.0, 'Quality': 2.0, 'Clarity': 2.0, 'Significance': 2.0, 'Decision_Numeric': 0.0, 'Ethical_Concerns_Numeric': 0.0}}  
+####   
+#### After you complete each change, we will run the command `python experiment.py --out_dir=run_i' where i is the run number and evaluate the results.  
+#### YOUR PROPOSED CHANGE MUST USE THIS COMMAND FORMAT, DO NOT ADD ADDITIONAL COMMAND LINE ARGS.  
+#### You can then implement the next thing on your list.  
+>  
+>  
+> ^C again to exit  
+> Tokens: 6,919 sent, 0 received. Cost: $0.02 message, $0.02 session.  

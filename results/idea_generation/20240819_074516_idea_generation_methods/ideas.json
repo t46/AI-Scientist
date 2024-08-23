@@ -1,0 +1,29 @@
+[
+    {
+        "Name": "idea_generation_methods",
+        "Title": "Idea Generation Methods: Comparing different idea generation methods for automated research paper generation.",
+        "Experiment": "In this experiment, we compare the performance of different idea generation methods (perform_generate_idea()) on automated research paper generation performance. We use the review score by (perform_review()) as the evaluation metric.",
+        "Interestingness": 2,
+        "Feasibility": 10,
+        "Novelty": 2,
+        "novel": true
+    },
+    {
+        "Name": "interdisciplinary_idea_generation",
+        "Title": "Interdisciplinary Idea Generation: Enhancing Automated Research Paper Generation",
+        "Experiment": "Modify the generate_ideas function to produce ideas from various domains (e.g., biology, physics, sociology) by tweaking model prompts. Integrate these interdisciplinary ideas into the experiment pipeline and evaluate their performance using review scores from perform_review(). Compare the review scores of interdisciplinary ideas against those from a single domain to test the hypothesis that interdisciplinary ideas yield higher scores.",
+        "Interestingness": 8,
+        "Feasibility": 7,
+        "Novelty": 9,
+        "novel": true
+    },
+    {
+        "Name": "human_in_the_loop_idea_generation",
+        "Title": "Human-in-the-Loop Idea Generation: Improving Automated Research Paper Generation with Expert Feedback",
+        "Experiment": "Modify the generate_ideas function to incorporate a batch feedback loop where domain experts review, rate, and provide comments on a batch of generated ideas. Implement a mechanism to process this feedback and refine the idea generation model in subsequent iterations. Compare the review scores of ideas generated with and without user feedback to evaluate the impact of HITL on the quality of generated research ideas.",
+        "Interestingness": 9,
+        "Feasibility": 7,
+        "Novelty": 8,
+        "novel": true
+    }
+]

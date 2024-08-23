@@ -1,0 +1,56 @@
+import numpy as np
+from sklearn.linear_model import LinearRegression
+
+def generate_ideas(base_dir, client, model, skip_generation=False, max_num_generations=10, num_reflections=3):
+    # Load historical research data
+    historical_data = load_historical_data(base_dir)
+    
+    # Perform linear regression to identify trends
+    trends = perform_trend_analysis(historical_data)
+    
+    # Generate ideas based on predicted trends
+    ideas = []
+    for trend in trends:
+        idea = {
+            "Title": f"Research on {trend['topic']}",
+            "Experiment": f"Investigate the impact of {trend['topic']} on {trend['field']}",
+            "Name": trend['topic']
+        }
+        ideas.append(idea)
+    
+    return ideas
+
+def load_historical_data(base_dir):
+    # Placeholder function to load historical research data
+    # Replace with actual data loading logic
+    data = {
+        "topics": ["AI", "Quantum Computing", "Blockchain"],
+        "years": [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020],
+        "counts": [
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],  # AI
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],  # Quantum Computing
+            [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]  # Blockchain
+        ]
+    }
+    return data
+
+def perform_trend_analysis(data):
+    trends = []
+    years = np.array(data["years"]).reshape(-1, 1)
+    
+    for i, topic in enumerate(data["topics"]):
+        counts = np.array(data["counts"][i])
+        model = LinearRegression()
+        model.fit(years, counts)
+        future_years = np.array([2021, 2022, 2023]).reshape(-1, 1)
+        predictions = model.predict(future_years)
+        
+        for year, prediction in zip(future_years, predictions):
+            trends.append({
+                "topic": topic,
+                "year": year[0],
+                "prediction": prediction,
+                "field": "Technology"  # Placeholder field
+            })
+    
+    return trends

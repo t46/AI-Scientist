@@ -1,0 +1,10 @@
+[
+    {
+      "Name": "idea_generation_methods",
+      "Title": "Idea Generation Methods: Comparing different idea generation methods for automated research paper generation.",
+      "Experiment": "In this experiment, we compare the performance of different idea generation methods (perform_generate_idea()) on automated research paper generation performance. We use the review score by (perform_review()) as the evaluation metric.",
+      "Interestingness": 2,
+      "Feasibility": 10,
+      "Novelty": 2
+    }
+  ]

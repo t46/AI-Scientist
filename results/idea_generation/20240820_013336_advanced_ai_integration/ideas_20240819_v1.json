@@ -1,0 +1,217 @@
+[
+    {
+        "Name": "idea_generation_methods",
+        "Title": "Idea Generation Methods: Comparing different idea generation methods for automated research paper generation.",
+        "Experiment": "In this experiment, we compare the performance of different idea generation methods (perform_generate_idea()) on automated research paper generation performance. We use the review score by (perform_review()) as the evaluation metric.",
+        "Interestingness": 2,
+        "Feasibility": 10,
+        "Novelty": 2
+    },
+    {
+        "Name": "tri_perspective_idea_generation",
+        "Title": "Enhancing Research Idea Generation through Tri-Perspective Simulation",
+        "Experiment": "Modify generate_ideas() to simulate three perspectives: a domain expert, an interdisciplinary researcher, and a novice. Generate ideas from each perspective and synthesize them. Compare the quality, novelty, and interdisciplinary nature of these ideas against a baseline using perform_review(). Analyze how diverse perspectives influence idea quality.",
+        "Interestingness": 9,
+        "Feasibility": 8,
+        "Novelty": 8,
+        "Significance": 9
+    },
+    {
+        "Name": "iterative_dual_perspective_refinement",
+        "Title": "Improving Research Idea Quality through Iterative Dual-Perspective Refinement",
+        "Experiment": "Modify generate_ideas() to implement a two-stage iterative process: 1) Generate initial ideas from two perspectives (expert and novice). 2) Refine ideas through simulated dialogue between perspectives. Repeat this process for 3 iterations. Use perform_review() to evaluate idea quality after each iteration. Compare the quality, novelty, and feasibility scores of ideas across iterations to measure the effectiveness of the refinement process.",
+        "Interestingness": 8,
+        "Feasibility": 8,
+        "Novelty": 7,
+        "Significance": 8
+    },
+    {
+        "Name": "focused_controversy_idea_generation",
+        "Title": "Focused Controversy-Driven Idea Generation for Innovative Research",
+        "Experiment": "Modify generate_ideas() to: 1) Identify key controversies and consensus areas in the field. 2) Generate ideas addressing these points from two perspectives: expert and interdisciplinary researcher. 3) Implement a single round of critique and refinement. 4) Synthesize final research proposals. Compare the quality, novelty, and potential impact of these ideas against the standard idea generation method using perform_review(). Analyze the distribution of ideas between controversial and consensus areas, and their respective impact scores.",
+        "Interestingness": 9,
+        "Feasibility": 8,
+        "Novelty": 8,
+        "Significance": 9
+    },
+    {
+        "Name": "adaptive_research_ecosystem_simulation",
+        "Title": "Enhancing Idea Generation through Adaptive Research Ecosystem Simulation (ARES)",
+        "Experiment": "Modify generate_ideas() to create a simulated research ecosystem with three AI agent types: Proposer, Critic, and Synthesizer. Implement 3 research cycles involving idea proposal, critique, and synthesis. Include an 'attention allocation' mechanism to focus on promising ideas. Introduce new constraints or objectives in each cycle. Compare the quality, novelty, and potential impact of ideas generated through ARES against standard idea generation methods using perform_review() after each cycle.",
+        "Interestingness": 9,
+        "Feasibility": 8,
+        "Novelty": 9,
+        "Significance": 8
+    },
+    {
+        "Name": "hierarchical_dual_agent_idea_refinement",
+        "Title": "Enhancing Research Idea Generation through Hierarchical Dual-Agent Idea Refinement (HDAIR)",
+        "Experiment": "Modify generate_ideas() to implement a two-tier system: Researchers and Review Board. Process: 1) Researchers generate initial ideas. 2) Review Board evaluates and provides feedback. 3) Researchers refine ideas based on feedback. Repeat for 3 iterations. Use perform_review() to evaluate idea quality after each iteration. Compare final ideas against the standard method on quality, novelty, and strategic alignment.",
+        "Interestingness": 9,
+        "Feasibility": 8,
+        "Novelty": 8,
+        "Significance": 9
+    },
+    {
+        "Name": "adaptive_perspective_weighting_idea_generation",
+        "Title": "Enhancing Research Idea Generation through Adaptive Perspective Weighting",
+        "Experiment": "Modify generate_ideas() to implement an Adaptive Perspective Weighting (APW) system: 1) Initialize with three perspective agents (expert, interdisciplinary, novice) with equal weights. 2) Generate ideas from each perspective. 3) Use perform_review() to evaluate ideas, focusing on 'Overall' score and 'Novelty'. 4) Adjust weights of perspectives based on their performance in the previous round. 5) Repeat for 5 iterations. 6) Compare average 'Overall' score and 'Novelty' of ideas across iterations to measure system improvement. 7) Analyze the evolution of perspective weights to identify the most valuable viewpoints for idea generation. 8) Compare final results with a baseline non-adaptive idea generation method to quantify the improvement.",
+        "Interestingness": 8,
+        "Feasibility": 9,
+        "Novelty": 8,
+        "Significance": 9
+    },
+    {
+        "Name": "dynamic_perspective_evolution_idea_generation",
+        "Title": "Enhancing Research Idea Generation through Dynamic Perspective Evolution",
+        "Experiment": "Modify generate_ideas() to implement a Dynamic Perspective Evolution (DPE) system: 1) Initialize with three base perspectives (expert, interdisciplinary, novice). 2) Generate ideas from each perspective. 3) Use perform_review() to evaluate ideas, focusing on 'Overall' score, 'Novelty', and 'Significance'. 4) Adjust weights of perspectives based on performance. 5) Create one new 'hybrid' perspective by combining the two highest-performing perspectives. 6) Repeat for 4 iterations, creating a new hybrid perspective after the 2nd iteration. 7) Track the evolution of perspectives and their contributions to idea quality. 8) Compare final results with the standard method and the best previous method (e.g., Adaptive Perspective Weighting) in terms of average 'Overall' score, 'Novelty', and 'Significance' of generated ideas.",
+        "Interestingness": 9,
+        "Feasibility": 8,
+        "Novelty": 9,
+        "Significance": 9
+    },
+    {
+        "Name": "simplified_evolutionary_idea_generation",
+        "Title": "Enhancing Research Idea Generation through Simplified Evolutionary Exploration",
+        "Experiment": "Modify generate_ideas() to implement Simplified Evolutionary Idea Generation (SEIG): 1) Generate initial 'seed ideas' from three perspectives (expert, interdisciplinary, novice). 2) Represent ideas using key attributes (methodology, domain, novelty score). 3) Implement simplified evolution: combine ideas (crossover) and introduce minor variations (mutation). 4) Run for 3 generations, generating 10 ideas per generation. 5) Introduce a new perspective agent in the 2nd generation. 6) Use perform_review() to evaluate ideas after each generation, tracking 'Overall' score, 'Novelty', and 'Significance'. 7) Analyze how idea quality and diversity evolve over generations. 8) Compare final results with the standard method and previous best method.",
+        "Interestingness": 8,
+        "Feasibility": 9,
+        "Novelty": 8,
+        "Significance": 8
+    },
+    {
+        "Name": "contextual_multi_agent_idea_refinement",
+        "Title": "Enhancing Research Idea Generation through Contextual Multi-Agent Idea Refinement (CMIR)",
+        "Experiment": "Modify generate_ideas() to implement CMIR: 1) Define 3 agent profiles: academic expert, industry practitioner, and interdisciplinary researcher. 2) Select 2 real-world contexts from different fields. 3) For each context, run 3 rounds of ideation: a) Agents generate initial ideas. b) Agents critique and provide feedback. c) Agents refine ideas based on feedback. 4) Implement a 'reality check' phase where ideas are evaluated for practical feasibility and potential impact. 5) Use perform_review() to evaluate ideas after each round, with additional criteria for 'practical relevance' and 'interdisciplinary depth' (scored 1-10). 6) Select top 2 ideas from each round as seeds for the next round. 7) Compare final CMIR-generated ideas against ideas generated by a standard single-perspective academic method on quality, novelty, practical relevance, and interdisciplinary depth.",
+        "Interestingness": 9,
+        "Feasibility": 9,
+        "Novelty": 8,
+        "Significance": 9
+    },
+    {
+        "Name": "adaptive_meta_learning_idea_generation",
+        "Title": "Enhancing Research Idea Generation through Adaptive Meta-Learning",
+        "Experiment": "Modify generate_ideas() to implement Adaptive Meta-Learning Idea Generation (AMLIG): 1) Initialize with two idea generation strategies: expert perspective and novice perspective. 2) Generate 10 ideas using each strategy. 3) Use perform_review() to evaluate ideas, focusing on 'Overall' score and 'Novelty'. 4) Implement a simple meta-learning module that identifies common characteristics of top-performing ideas (top 25% by Overall score). 5) Use this analysis to adjust the prompts for each perspective, emphasizing successful characteristics. 6) Repeat steps 2-5 for 3 cycles. 7) Calculate the average 'Overall' score and 'Novelty' for each cycle to measure improvement. 8) Compare the final results with the standard method in terms of average 'Overall' score and 'Novelty', as well as the rate of improvement across cycles.",
+        "Interestingness": 9,
+        "Feasibility": 9,
+        "Novelty": 8,
+        "Significance": 9
+    },
+    {
+        "Name": "temporal_cross_domain_idea_synthesis",
+        "Title": "Enhancing Research Idea Generation through Temporal Cross-Domain Idea Synthesis (TCIS)",
+        "Experiment": "Modify generate_ideas() to implement TCIS: 1) Create 6 agent profiles combining 2 temporal perspectives (present, future) with 3 domain perspectives (e.g., CS, biology, psychology). 2) For each agent, generate initial ideas considering their temporal and domain context. 3) Use cross-domain synthesis to combine ideas from different domains. 4) Use perform_review() to evaluate ideas, focusing on 'Overall' score, 'Novelty', and 'Significance'. 5) Implement adaptive weighting to adjust the influence of temporal and domain perspectives based on idea performance. 6) Repeat for 2 cycles, generating 10 ideas per cycle. 7) Compare final results with the standard method in terms of average scores and qualitative assessment of interdisciplinary potential and future-orientation.",
+        "Interestingness": 9,
+        "Feasibility": 9,
+        "Novelty": 8,
+        "Significance": 9
+    },
+    {
+        "Name": "adversarial_multi_agent_idea_evolution",
+        "Title": "Enhancing Research Idea Generation through Adversarial Multi-Agent Idea Evolution (AMAIE)",
+        "Experiment": "Modify generate_ideas() to implement AMAIE: 1) Define 3 agent profiles: academic expert, industry practitioner, and interdisciplinary researcher. 2) Run 2 rounds of ideation: a) Each agent generates 2 ideas. b) Agents critique ideas from other agents, identifying potential flaws. c) Original agents refine ideas based on critiques. 3) Implement a scoring system combining perform_review() output (70% weight) and a defense score (30% weight, rated 1-5) based on how well ideas withstand critiques. 4) After round 1, select top 50% ideas based on combined scores as seeds for round 2. 5) Track idea evolution across rounds, analyzing changes in response to adversarial input. 6) Compare final AMAIE-generated ideas against ideas from previous methods on quality, novelty, robustness, and practical feasibility.",
+        "Interestingness": 9,
+        "Feasibility": 9,
+        "Novelty": 9,
+        "Significance": 9
+    },
+    {
+        "Name": "adaptive_perspective_ecosystem",
+        "Title": "Enhancing Research Idea Generation through an Adaptive Perspective Ecosystem (APE)",
+        "Experiment": "Modify generate_ideas() to implement APE: 1) Initialize 3 perspective agents: 'traditionalist', 'innovator', and 'synthesizer', each with different idea generation strategies. 2) Implement a simple 'research trend' simulator that gradually shifts between valuing incremental and radical ideas. 3) Run 3 rounds of idea generation: a) Agents generate ideas influenced by the current trend. b) Ideas are evaluated using perform_review(). c) Meta-learning module analyzes top ideas and updates agent strategies. 4) Track idea quality, novelty, and alignment with the trend across rounds. 5) Compare final results with previous methods, focusing on adaptability to the changing trend and improvement in idea quality over rounds.",
+        "Interestingness": 9,
+        "Feasibility": 9,
+        "Novelty": 8,
+        "Significance": 9
+    },
+    {
+        "Name": "simplified_knowledge_graph_idea_synthesis",
+        "Title": "Enhancing Research Idea Generation through Simplified Knowledge-Graph-Enhanced Idea Synthesis (SKGIS)",
+        "Experiment": "Modify generate_ideas() to implement SKGIS: 1) Initialize a simple knowledge graph as a dictionary of key concepts and related terms. 2) Create 3 agent profiles: domain expert, interdisciplinary researcher, and innovator. 3) Run 2 rounds of idea generation: a) Agents generate ideas referencing the knowledge graph. b) Agents critique others' ideas, suggesting new concept connections. c) Update the graph based on critiques. d) Agents refine ideas. 4) Use perform_review() to evaluate ideas after each round. 5) Implement adaptive weighting: adjust agent influence based on their ideas' average 'Overall' scores. 6) Compare final results with the standard method, focusing on idea quality, novelty, and the evolution of the knowledge graph. 7) Analyze the correlation between knowledge graph updates and idea quality improvement.",
+        "Interestingness": 9,
+        "Feasibility": 9,
+        "Novelty": 8,
+        "Significance": 9
+    },
+    {
+        "Name": "adaptive_multi_agent_idea_refinement",
+        "Title": "Enhancing Research Idea Generation through Adaptive Multi-Agent Idea Refinement (AMAIR)",
+        "Experiment": "Modify generate_ideas() to implement AMAIR: 1) Initialize 3 adaptive agents with different initial roles (expert, innovator, synthesizer). 2) Run 3 rounds of idea generation: a) Agents generate ideas based on their current role. b) Ideas are evaluated using a combined score from perform_review() (70%) and an interdisciplinary potential rating (30%). c) Agents critique and refine top 50% ideas. d) Update agent roles based on performance. 3) After each round, slightly adjust the evaluation criteria to simulate evolving research trends. 4) Compare final results with previous methods, focusing on idea quality, novelty, and improvement over iterations. Analyze how agent roles evolve and impact idea generation.",
+        "Interestingness": 9,
+        "Feasibility": 9,
+        "Novelty": 8,
+        "Significance": 9
+    },
+    {
+        "Name": "dual_paradigm_adaptive_idea_generation",
+        "Title": "Enhancing Research Idea Generation through Dual-Paradigm Adaptive Networks (DPAIN)",
+        "Experiment": "Modify generate_ideas() to implement DPAIN: 1) Define 2 research paradigms: current and emerging. 2) Create 4 agents: 2 aligned with each paradigm initially. 3) Run 3 rounds of idea generation: a) Agents generate ideas influenced by their paradigm. b) Ideas are evaluated using perform_review() and a 'cross-paradigm potential' score (1-10). c) After each round, simulate a gradual paradigm shift by adjusting the influence of each paradigm. d) Agents adapt their paradigm alignment based on idea performance. 4) Track idea quality, novelty, and cross-paradigm potential across rounds. 5) After the final round, evaluate top ideas under a simulated 'paradigm shift' scenario. 6) Compare final results with previous methods, focusing on idea robustness and potential for long-term impact. 7) Analyze the correlation between an idea's cross-paradigm potential and its performance in the 'paradigm shift' scenario.",
+        "Interestingness": 9,
+        "Feasibility": 9,
+        "Novelty": 8,
+        "Significance": 9
+    },
+    {
+        "Name": "dynamic_dual_paradigm_idea_evolution",
+        "Title": "Enhancing Research Idea Generation through Dynamic Dual-Paradigm Idea Evolution (DDPIE)",
+        "Experiment": "Modify generate_ideas() to implement DDPIE: 1) Initialize 2 research paradigms: 'established' and 'emerging', each with unique evaluation criteria. 2) Create 4 agents with varying alignments to these paradigms. 3) Run 3 rounds of idea generation: a) Agents generate ideas influenced by their paradigm alignments. b) Ideas are evaluated using perform_review() and paradigm-specific criteria. c) Update paradigm strengths based on idea performance. d) Agents adapt their paradigm alignments. 4) Before the final round, introduce a 'disruptive event' by significantly boosting the 'emerging' paradigm's strength. 5) Track idea quality, novelty, and cross-paradigm impact (measured by relevance to both paradigms) across rounds. 6) After the final round, evaluate top ideas under both paradigm scenarios. 7) Compare final results with previous methods, focusing on idea quality, novelty, adaptability to paradigm shifts, and potential for bridging paradigms.",
+        "Interestingness": 9,
+        "Feasibility": 9,
+        "Novelty": 8,
+        "Significance": 9
+    },
+    {
+        "Name": "adaptive_research_ecosystem_idea_evolution",
+        "Title": "Enhancing Research Idea Generation through Adaptive Research Ecosystem Idea Evolution (AREIE)",
+        "Experiment": "Modify generate_ideas() to implement AREIE: 1) Create a simple Research Ecosystem State (RES) with three parameters: funding priority, technological trend, and societal need. 2) Initialize 3 agent types: traditionalist, innovator, and synthesizer. 3) Run 3 rounds of idea generation: a) Agents generate ideas influenced by current RES. b) Ideas evaluated using perform_review() and an additional 'adaptability score' (1-10). c) Update RES by randomly adjusting one parameter. d) Agents adapt strategies based on performance. 4) After round 2, introduce a 'disruptive event' by significantly changing all RES parameters. 5) Track idea quality, novelty, and adaptability across rounds. 6) Compare final results with previous methods, focusing on idea quality, novelty, and resilience to ecosystem changes.",
+        "Interestingness": 9,
+        "Feasibility": 9,
+        "Novelty": 9,
+        "Significance": 9
+    },
+    {
+        "Name": "constrained_adaptive_research_idea_generation",
+        "Title": "Enhancing Research Idea Generation through Constrained Adaptive Research Idea Generation (CARIG)",
+        "Experiment": "Modify generate_ideas() to implement CARIG: 1) Initialize 3 agent types (traditional, innovative, interdisciplinary) with 2 agents each. 2) Define 3 constraint types: resource limitations, technological advancements, and societal needs. 3) Run 3 rounds of idea generation: a) Introduce a random constraint of each type at the start of each round. b) Agents generate ideas and adaptive strategies influenced by their type and current constraints. c) Ideas are evaluated using perform_review() and additional scores for 'practical impact' and 'constraint adaptation' (1-10 each). d) Agents adapt their strategies based on performance. 4) After round 2, simulate a 'paradigm shift' by significantly changing all constraints. 5) Track idea quality, novelty, practical impact, and constraint adaptation across rounds. 6) Compare final results with previous methods, focusing on idea quality, novelty, practical applicability, and adaptability to changing research environments.",
+        "Interestingness": 9,
+        "Feasibility": 9,
+        "Novelty": 9,
+        "Significance": 9
+    },
+    {
+        "Name": "competitive_funding_adaptive_idea_generation",
+        "Title": "Enhancing Research Idea Generation through Competitive Funding Adaptive Idea Generation (CFAIG)",
+        "Experiment": "Modify generate_ideas() to implement CFAIG: 1) Initialize 3 agent types: traditionalist, innovator, and interdisciplinary. 2) Create a simulated funding body with dynamic priority areas. 3) Run 3 rounds of idea generation: a) Agents generate ideas influenced by current funding priorities. b) Ideas are evaluated using perform_review() and a 'funding alignment' score (1-10). c) Top ideas receive simulated funding, influencing future priorities. d) Agents adapt strategies based on funding success. 4) After round 2, introduce a 'budget cut' event. 5) Track idea quality, novelty, funding success, and evolution of funding priorities. 6) Compare results with previous methods, focusing on idea adaptability and impact under funding pressure.",
+        "Interestingness": 9,
+        "Feasibility": 9,
+        "Novelty": 9,
+        "Significance": 9
+    },
+    {
+        "Name": "network_driven_adaptive_research_idea_generation",
+        "Title": "Enhancing Research Idea Generation through Network-Driven Adaptive Research Idea Generation (NDARIG)",
+        "Experiment": "Modify generate_ideas() to implement NDARIG: 1) Initialize a Research Impact Network (RIN) with 10 fixed research topics, each with an impact score. 2) Create 3 agent types: explorer, developer, and synthesizer. 3) Run 3 rounds of idea generation: a) Agents generate ideas, tagging them with relevant RIN topics. b) Evaluate ideas using perform_review() and a 'network impact score' based on the number and impact of connected topics. c) Update RIN topic impact scores based on new ideas. d) Agents adapt strategies based on both immediate evaluation and network impact. 4) Track idea quality, novelty, and network impact across rounds. 5) Compare final results with previous methods, focusing on idea quality, novelty, and potential for driving future innovations as reflected in RIN topic impact scores.",
+        "Interestingness": 9,
+        "Feasibility": 9,
+        "Novelty": 9,
+        "Significance": 9
+    },
+    {
+        "Name": "strategic_resource_allocation_idea_generation",
+        "Title": "Enhancing Research Idea Generation through Strategic Resource Allocation in Multi-Agent Systems (SRAMIG)",
+        "Experiment": "Modify generate_ideas() to implement SRAMIG: 1) Initialize 3 agent types (explorer, developer, synthesizer) with individual resource pools (time, funding). 2) Run 3 rounds of idea generation: a) Agents allocate resources between idea generation and refinement. b) Generate or refine ideas based on allocated resources. c) Evaluate ideas using perform_review() and calculate an 'Impact Score' (1-10) based on novelty and significance. d) Calculate 'Resource Efficiency Score' as (Impact Score / Resources Used). e) Agents adapt resource allocation strategies based on efficiency. 3) Track idea quality, Impact Score, and Resource Efficiency Score across rounds. 4) Compare final results with previous methods, focusing on idea quality, resource utilization efficiency, and overall research impact.",
+        "Interestingness": 9,
+        "Feasibility": 9,
+        "Novelty": 9,
+        "Significance": 9
+    },
+    {
+        "Name": "adaptive_collaborative_competitive_research_teams",
+        "Title": "Enhancing Research Idea Generation through Adaptive Collaborative-Competitive Research Teams (ACCRT)",
+        "Experiment": "Modify generate_ideas() to implement ACCRT: 1) Create 2 research teams, each with 2 agent types (explorer, synthesizer). 2) Run 3 rounds of idea generation: a) Teams independently generate ideas. b) Ideas are evaluated using perform_review(). c) After evaluation, teams can view the top-rated idea from the other team. d) Teams adapt strategies based on performance and observed ideas. 3) Implement a collaboration mechanism: in rounds 2 and 3, teams can choose to build upon the other team's top idea or continue independently. 4) Introduce a Collaboration-Competition Score (CCS): +1 for collaborative choices, -1 for competitive choices. 5) Track idea quality, novelty, CCS, and the impact of collaborative vs. competitive choices on idea quality. 6) Compare final results with previous methods, analyzing how different CCS values correlate with overall idea quality and diversity.",
+        "Interestingness": 9,
+        "Feasibility": 9,
+        "Novelty": 8,
+        "Significance": 9
+    }
+]

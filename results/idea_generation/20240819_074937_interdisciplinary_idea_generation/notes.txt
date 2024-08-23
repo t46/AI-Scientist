@@ -1,0 +1,5 @@
+# Title: Interdisciplinary Idea Generation: Integrating Diverse Perspectives for Automated Research Paper Generation
+# Experiment description: In this experiment, we extend the generate_ideas() function to incorporate insights from multiple disciplines (e.g., computer science, cognitive science, philosophy). We will use predefined themes or domains to guide the idea generation process. The generated ideas will then be evaluated using the review score from perform_review() as the evaluation metric. The results will be compared with the baseline idea generation method to assess the impact of interdisciplinary perspectives.
+## Run 0: Baseline
+Results: {'result': {'Soundness': 2.0, 'Presentation': 2.0, 'Contribution': 2.0, 'Overall': 3.0, 'Confidence': 4.0, 'Originality': 2.0, 'Quality': 2.0, 'Clarity': 2.0, 'Significance': 2.0, 'Decision_Numeric': 0.0, 'Ethical_Concerns_Numeric': 0.0}}
+Description: Baseline results.

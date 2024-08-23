@@ -1,0 +1,29 @@
+[
+    {
+        "Name": "idea_generation_methods",
+        "Title": "Idea Generation Methods: Comparing different idea generation methods for automated research paper generation.",
+        "Experiment": "In this experiment, we compare the performance of different idea generation methods (perform_generate_idea()) on automated research paper generation performance. We use the review score by (perform_review()) as the evaluation metric.",
+        "Interestingness": 2,
+        "Feasibility": 10,
+        "Novelty": 2,
+        "novel": true
+    },
+    {
+        "Name": "diverse_perspectives_integration",
+        "Title": "Integrating Diverse Perspectives in Idea Generation for Enhanced Research Innovation",
+        "Experiment": "In this experiment, we modify the generate_ideas() function to incorporate diverse perspectives by simulating different disciplinary focuses. This involves using pre-defined categories such as natural sciences, social sciences, and engineering to generate ideas within these contexts. We will then combine these ideas to form a final set of research ideas. The performance of these ideas will be compared against those generated without this integration, using review scores from perform_review() as our evaluation metric.",
+        "Interestingness": 8,
+        "Feasibility": 7,
+        "Novelty": 9,
+        "novel": true
+    },
+    {
+        "Name": "historical_trend_analysis",
+        "Title": "Incorporating Historical Trend Analysis in Idea Generation for Timely and Relevant Research",
+        "Experiment": "This experiment will involve modifying the generate_ideas() function to incorporate historical trend analysis. We will analyze the frequency and trends of keywords in past research papers to identify emerging trends and gaps in the literature. The modified function will use this information to generate ideas that are timely and relevant. The performance of these ideas will be compared against those generated without historical analysis, using review scores from perform_review() as the evaluation metric.",
+        "Interestingness": 8,
+        "Feasibility": 7,
+        "Novelty": 9,
+        "novel": true
+    }
+]

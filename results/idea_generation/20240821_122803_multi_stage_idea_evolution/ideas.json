@@ -1,0 +1,62 @@
+[
+    {
+        "Name": "novel_idea_generation_methods",
+        "Title": "Novel Idea Generation Methods: Developing and comparing different idea generation methods for automated research paper generation.",
+        "Method": "We propose a new idea generation method that combines the strengths of different existing methods and improves their weaknesses.",
+        "Experiment": "In this experiment, we compare the performance of different idea generation methods (perform_generate_idea()) on automated research paper generation performance. We use the review score by (perform_review()) as the evaluation metric.",
+        "Interestingness": 1,
+        "Feasibility": 5,
+        "Novelty": 1,
+        "Significance": 1
+    },
+    {
+        "Name": "multi_stage_idea_evolution",
+        "Title": "Multi-Stage Idea Evolution: A Systematic Approach to Enhancing AI-Generated Research Ideas",
+        "Method": "We propose a multi-stage idea evolution process: 1) Diverse initial idea generation using various prompts and seed concepts, 2) Automated clustering of similar ideas, 3) Intelligent combination of complementary ideas, 4) Iterative refinement and evaluation of combined ideas, 5) Final synthesis into human-interpretable research proposals.",
+        "Experiment": "Modify generate_ideas() to implement the multi-stage process. Add functions: diverse_idea_generation(), idea_clustering(), idea_combination(), idea_refinement(), and proposal_synthesis(). Evaluate using: a) Diversity score for initial ideas, b) Coherence score for clustered and combined ideas, c) Novelty and feasibility scores for refined ideas, d) Overall quality score for final proposals. Compare these metrics at each stage and for the final output against the baseline method. Use perform_review() to assess idea quality throughout the process.",
+        "Interestingness": 9,
+        "Feasibility": 8,
+        "Novelty": 8,
+        "Significance": 9
+    },
+    {
+        "Name": "dynamic_idea_graph_exploration",
+        "Title": "Dynamic Idea Graph Exploration for Enhanced Research Idea Generation",
+        "Method": "We propose a method that represents research ideas as nodes in a dynamically updated graph, with edges representing relationships between ideas. The graph is explored and expanded using a heuristic-based strategy that balances exploitation of promising areas with exploration of novel connections, leading to the generation of innovative research proposals.",
+        "Experiment": "1. Implement an idea_graph class with nodes (ideas) and edges (relationships). 2. Modify generate_ideas() to create and update the idea graph. 3. Implement graph_exploration() function using a heuristic strategy (e.g., UCB1 algorithm). 4. Create idea_combination() function to merge promising ideas. 5. Integrate these components into the existing pipeline. 6. Evaluate using: a) Graph diversity (number of distinct idea clusters), b) Idea novelty (average distance from existing ideas), c) Idea quality (using perform_review()), d) Idea generation speed. Compare these metrics against the baseline method.",
+        "Interestingness": 8,
+        "Feasibility": 8,
+        "Novelty": 7,
+        "Significance": 8
+    },
+    {
+        "Name": "iterative_knowledge_enhanced_idea_synthesis",
+        "Title": "Iterative Knowledge-Enhanced Idea Synthesis: Generating Comprehensive Research Proposals through Cyclic Integration of Literature",
+        "Method": "We propose an iterative method that alternates between idea generation and focused literature review. Each iteration, the system generates ideas, uses them to guide a literature search, extracts key concepts and findings to update a simple knowledge base, and then uses this enhanced knowledge to inform the next round of idea generation. This cycle continues, producing increasingly refined and literature-grounded research proposals.",
+        "Experiment": "1. Implement a simplified knowledge_base class storing key concepts and findings. 2. Modify generate_ideas() to query and incorporate knowledge base information. 3. Create extract_key_info() to process papers found by search_for_papers(). 4. Implement iterative_idea_refinement() that cycles through idea generation and knowledge update. 5. Develop a 'knowledge influence' metric to measure how generated ideas reflect acquired knowledge. 6. Compare the quality, novelty, and literature-groundedness of final research proposals against the baseline using perform_review().",
+        "Interestingness": 8,
+        "Feasibility": 8,
+        "Novelty": 7,
+        "Significance": 8
+    },
+    {
+        "Name": "adaptive_deep_idea_refinement",
+        "Title": "Adaptive Deep Idea Refinement: Enhancing AI-Generated Research Proposals through Targeted Analysis and Improvement",
+        "Method": "We propose an Adaptive Deep Idea Refinement (ADIR) method that evaluates each generated idea using a quantifiable Idea Quality Score (IQS), then applies targeted refinement techniques (analogical reasoning and constraint modification) adaptively based on the current IQS.",
+        "Experiment": "1. Modify generate_ideas() to include the ADIR process. 2. Implement calculate_iqs() function combining novelty, feasibility, and potential impact metrics. 3. Develop refine_idea() function using analogical reasoning and constraint modification. 4. Create adaptive_refinement() that adjusts refinement strategy based on current IQS. 5. Implement iterative_improvement() to apply evaluation and refinement until a target IQS is reached or maximum iterations occur. 6. Compare final IQS, computational efficiency, and human-evaluated quality (using perform_review()) of ideas produced by ADIR against the baseline method. 7. Analyze the progression of IQS over refinement iterations.",
+        "Interestingness": 8,
+        "Feasibility": 8,
+        "Novelty": 7,
+        "Significance": 8
+    },
+    {
+        "Name": "trend_based_impact_prediction",
+        "Title": "Trend-Based Impact Prediction for Enhanced Idea Evaluation in AI-Driven Research",
+        "Method": "We propose a Trend-Based Impact Prediction (TBIP) method that evaluates generated research ideas based on their alignment with current research trends and potential for future impact. This method uses data from recent papers to identify emerging research directions and predicts the potential influence of new ideas over time.",
+        "Experiment": "1. Modify search_for_papers() to retrieve additional metadata like citation counts and publication dates. 2. Implement extract_research_trends() to analyze paper data and identify current hot topics and emerging trends. 3. Create calculate_trend_alignment() to assess how well each generated idea aligns with identified trends. 4. Develop predict_future_impact() to estimate potential citations and applications of an idea over time based on trend alignment and idea characteristics. 5. Integrate these functions into generate_ideas() to use TBIP in idea evaluation. 6. Compare the quality of ideas selected by TBIP against the baseline method using both perform_review() and long-term impact predictions. 7. Analyze the correlation between predicted impact and actual performance of implemented ideas.",
+        "Interestingness": 8,
+        "Feasibility": 8,
+        "Novelty": 7,
+        "Significance": 8
+    }
+]
