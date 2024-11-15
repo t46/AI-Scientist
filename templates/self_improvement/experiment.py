@@ -28,7 +28,7 @@ from aider.io import InputOutput
 EXPERIMENT = "nanoGPT"  #"2d_diffusion"
 # MODEL = "gpt-4o-2024-05-13"
 MODEL = "claude-3-5-sonnet-20240620"
-NUM_IDEAS = 2
+NUM_IDEAS = 5
 NUM_REFLECTIONS = 2
 LLM_COLS = ["paper_id", "Summary", "Questions", "Limitations", "Ethical Concerns", "Soundness", "Presentation", "Contribution", "Overall", "Confidence", "Strengths", "Weaknesses", "Originality", "Quality", "Clarity", "Significance", "Decision"]
 

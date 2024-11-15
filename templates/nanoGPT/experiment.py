@@ -335,7 +335,7 @@ def train(dataset="shakespeare_char", out_dir="run_0", seed_offset=0):
     bias = False  # do we use bias inside LayerNorm and Linear layers?
     # adamw optimizer
     learning_rate = 1e-3 if dataset == "shakespeare_char" else 5e-4
-    max_iters = 5000 if dataset == "shakespeare_char" else 100000
+    max_iters = 5000 if dataset == "shakespeare_char" else 100000  # 5000
     weight_decay = 1e-1
     beta1 = 0.9
     beta2 = 0.99  # make a bit bigger because number of tokens per iter is small
@@ -683,7 +683,7 @@ args = parser.parse_args()
 
 if __name__ == "__main__":
     num_seeds = {
-        "shakespeare_char": 3,
+        "shakespeare_char": 1, ## 3
         "enwik8": 1,
         "text8": 1,
     }
@@ -691,7 +691,7 @@ if __name__ == "__main__":
     out_dir = args.out_dir
     all_results = {}
     final_infos = {}
-    for dataset in ["shakespeare_char", "enwik8", "text8"]:
+    for dataset in ["shakespeare_char"]:  # ["shakespeare_char", "enwik8", "text8"]
         final_info_list = []
         for seed_offset in range(num_seeds[dataset]):
             final_info, train_info, val_info = train(dataset, out_dir, seed_offset)

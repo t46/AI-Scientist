@@ -6,7 +6,7 @@ import os
 import os.path as osp
 
 # LOAD FINAL RESULTS:
-datasets = ["shakespeare_char", "enwik8", "text8"]
+datasets = ["shakespeare_char"]  # ["shakespeare_char", "enwik8", "text8"]
 folders = os.listdir("./")
 final_results = {}
 results_info = {}
@@ -25,18 +25,23 @@ for folder in folders:
                     run_info[dataset]["iters"] = [info["iter"] for info in results_dict[k]]
                     val_losses.append([info["val/loss"] for info in results_dict[k]])
                     train_losses.append([info["train/loss"] for info in results_dict[k]])
+            if val_losses:  # val_lossesが空でない場合のみ計算
                 mean_val_losses = np.mean(val_losses, axis=0)
+                sterr_val_losses = np.std(val_losses, axis=0) / np.sqrt(len(val_losses))
+            else:
+                mean_val_losses = sterr_val_losses = np.zeros(1)
+            if train_losses:  # train_lossesが空でない場合のみ計算
                 mean_train_losses = np.mean(train_losses, axis=0)
-                if len(val_losses) > 0:
-                    sterr_val_losses = np.std(val_losses, axis=0) / np.sqrt(len(val_losses))
-                    stderr_train_losses = np.std(train_losses, axis=0) / np.sqrt(len(train_losses))
-                else:
-                    sterr_val_losses = np.zeros_like(mean_val_losses)
-                    stderr_train_losses = np.zeros_like(mean_train_losses)
-                run_info[dataset]["val_loss"] = mean_val_losses
-                run_info[dataset]["train_loss"] = mean_train_losses
-                run_info[dataset]["val_loss_sterr"] = sterr_val_losses
-                run_info[dataset]["train_loss_sterr"] = stderr_train_losses
+                stderr_train_losses = np.std(train_losses, axis=0) / np.sqrt(len(train_losses))
+            else:
+                mean_train_losses = stderr_train_losses = np.zeros(1)
+
+            run_info[dataset]["val_loss"] = mean_val_losses
+            run_info[dataset]["train_loss"] = mean_train_losses
+            run_info[dataset]["val_loss_sterr"] = sterr_val_losses
+            run_info[dataset]["train_loss_sterr"] = stderr_train_losses
+
+        
         results_info[folder] = run_info
 
 # CREATE LEGEND -- ADD RUNS HERE THAT WILL BE PLOTTED
